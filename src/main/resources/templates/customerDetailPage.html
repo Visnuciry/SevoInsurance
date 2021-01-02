@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Bootstrap</title>
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
+<link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+	<div class="register-photo">
+		<!--BEGIN Record sondaggi-->
+		<h2 class="text-center">
+			<strong>Welcome to SEVO</strong><br>
+		</h2>
+		<div class="form-container">
+			<div class="image-holder"></div>
+			<form id="sondaggi" name="{HTMLFormName}" th:method="post"
+				th:action="@{/customerDetailPage}" th:object="${userDetail}">
+				<h2 class="text-center">
+					<strong>Your account details</strong><br>
+				</h2>
+				<!--BEGIN Error-->
+				<!--END Error-->
+				<div class="form-group">
+					
+					<div>
+						<!--BEGIN CheckBox totale1-->
+						<label><strong>First Name&nbsp;</strong></label><input th:field = "*{surName}"
+							class="form-control" type="text" id="sondaggitotale1"
+							value="First Name" name="{totale1_Name}">
+						<!--END CheckBox totale1-->
+					</div>
+					<div>
+						<!--BEGIN CheckBox totale2-->
+						<label><strong>Last Name&nbsp;</strong></label><input th:field = "*{lastName}"
+							class="form-control" type="text" id="sondaggitotale2"
+							value="Last Name" name="{totale2_Name}">
+						<!--END CheckBox totale2-->
+					</div>
+					<div>
+						<!--BEGIN CheckBox totale3-->
+						<label><strong>Date of Birth&nbsp;</strong></label><input th:field = "*{dateOfBirth}"
+							class="form-control" id="sondaggitotale3" value="Date of Birth" type = "date"
+							name="{totale3_Name}">
+						<!--END CheckBox totale3-->
+					</div>
+					<div>
+						<!--BEGIN CheckBox totale4-->
+						<label><strong>Insurance Number</strong></label><input th:field = "*{insuranceNo}"
+							class="form-control" type="text" id="sondaggitotale4"
+							value="Insurance No." name="{totale4_Name}" placeholder="Enter your Insurance Number">
+						<!--END CheckBox totale4-->
+					</div>
+					<div>
+						<!--BEGIN CheckBox totale5-->
+						<label><strong>Gender&nbsp;</strong></label> <select th:field = "*{gender}"
+							class="form-control">
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+						<!--END CheckBox totale5-->
+					</div>
+				</div>
+				<div class="form-group">
+					<!--BEGIN Button Button_Update-->
+					<button class="btn btn-primary btn-block"
+						id="sondaggiButton_Update" type="submit" name="{Button_Name}">Next</button>
+					<!--END Button Button_Update-->
+				</div>
+			</form>
+		</div>
+		<!--Comment-->
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/script.min.js"></script>
+</body>
+
+</html>
