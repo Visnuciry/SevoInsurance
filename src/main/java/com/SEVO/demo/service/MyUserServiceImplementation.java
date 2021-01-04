@@ -14,6 +14,10 @@ import com.SEVO.demo.entity.User;
 
 public class MyUserServiceImplementation implements UserDetails {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
 
 	public MyUserServiceImplementation(User user) {

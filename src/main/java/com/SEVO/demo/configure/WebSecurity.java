@@ -1,5 +1,6 @@
 package com.SEVO.demo.configure;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,6 +18,8 @@ import com.SEVO.demo.service.MyUserService;
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	private SucessHandler sucesshandler;
 	@Bean
 	public UserDetailsService userDetailImplementation() {
 
@@ -44,13 +47,29 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		 * .loginProcessingUrl("/sendLogin").successHandler(null).permitAll().and().
 		 * logout().permitAll().and() .exceptionHandling().accessDeniedPage("/404");
 		 */
-		http.csrf().disable().authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register")
-				.permitAll().antMatchers("/","/customerDetailPage").hasAuthority("CUSTOMER").anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").permitAll().and().logout().deleteCookies("JSESSIONID").permitAll()
+		/*
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000)
 				.and().exceptionHandling()
-				.accessDeniedPage("/403");
+				.accessDeniedPage("/403");*/
+		
+		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register").permitAll()
+		.antMatchers("/customerDetailPage","/customer/**").hasAuthority("CUSTOMER")
+		.antMatchers("/customerDetailPage","/admin/**").hasAuthority("ADMIN")
+		.anyRequest().authenticated().and().formLogin()
+		.loginPage("/login").successHandler(sucesshandler).permitAll().and().logout()
+		.deleteCookies("JSESSIONID").permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000).and().exceptionHandling()
+		.accessDeniedPage("/403");
+
+//		http.authorizeRequests()
+//		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register")
+//				.permitAll().antMatchers("/","/customerDetailPage").hasAuthority("CUSTOMER").anyRequest().authenticated().and().formLogin()
+//				.loginPage("/login").permitAll().and().logout()
+//				.deleteCookies("JSESSIONID").permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//				.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000).and().exceptionHandling()
+//				.accessDeniedPage("/403");
+		
 	}
 
 }

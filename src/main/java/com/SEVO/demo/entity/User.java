@@ -1,5 +1,7 @@
 package com.SEVO.demo.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.Set;
+import javax.validation.constraints.NotBlank;
+
+import com.SEVO.demo.validator.EmailValidator;
+import com.SEVO.demo.validator.UniqueEmailadress;
 
 @Entity
 
@@ -26,11 +31,19 @@ public class User {
 	@Column(name = "user_id")
 	private int id;
 	@Column(name = "username")
+	@NotBlank
 	private String userName;
+	@UniqueEmailadress
+	@EmailValidator
+	@NotBlank
 	@Column(name = "email_address")
 	private String emailAddress;
 	@Column(name = "password")
+	@NotBlank
 	private String password;
+	@Column (name = "registrationstatus")
+	private boolean registrationStatus;
+	
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userrolls", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "roll_id", referencedColumnName = "rolls_id"))
@@ -98,5 +111,16 @@ public class User {
 	public void setUserDetail(UserDetail userDetail) {
 		this.userDetail = userDetail;
 	}
+
+	public boolean isRegistrationStatus() {
+		return registrationStatus;
+	}
+
+	public void setRegistrationStatus(boolean registrationStatus) {
+		this.registrationStatus = registrationStatus;
+	}
+
+	
+
 
 }

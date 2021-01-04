@@ -7,5 +7,6 @@ import com.SEVO.demo.entity.UserDetail;
 public interface UserDetailRepository extends JpaRepository<UserDetail, Integer> {
 	
 	
+	
 
 }
