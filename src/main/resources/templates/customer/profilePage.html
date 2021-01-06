@@ -33,10 +33,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link active"
-							style="color: #ffffff;" href="#"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
+							style="color: #ffffff;" th:href="@{/}"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" th:href="@{/customer/profilePage}"><i
+								class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
 						<li class="nav-item"><a class="nav-link"
 							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
 								SEVO</a></li>
@@ -54,7 +55,7 @@
 			</div>
 		</nav>
 	</div>
-	<section class = "container">
+	<section class="container">
 		<div class="form-container">
 			<div class="image-holder"></div>
 			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
@@ -62,14 +63,14 @@
 				<h2 class="text-center">
 					<strong>Your account details</strong><br>
 				</h2>
-				<input type="hidden" th:field = "*{id}" >
+				<input type="hidden" th:field="*{id}">
 				<!--BEGIN Error-->
 				<!--END Error-->
 				<div class="row">
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
-						<label><strong>Gender&nbsp;</strong></label> <select disabled="disabled"
-							th:field="*{gender}" class="form-control">
+						<label><strong>Gender&nbsp;</strong></label> <select
+							disabled="disabled" th:field="*{gender}" class="form-control">
 							<option value="" hidden selected>Select your gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
@@ -77,28 +78,31 @@
 						<!--END CheckBox totale5-->
 					</div>
 
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale1-->
-						<label><strong>First Name&nbsp;</strong></label><input disabled="disabled"
-							th:field="*{surName}" class="form-control" type="text"
-							id="surname" name="surname" placeholder="Enter your first name">
+						<label><strong>First Name&nbsp;</strong></label><input
+							disabled="disabled" th:field="*{surName}" class="form-control"
+							type="text" id="surname" name="surname"
+							placeholder="Enter your first name">
 						<!--END CheckBox totale1-->
 					</div>
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale2-->
-						<label><strong>Last Name&nbsp;</strong></label><input disabled="disabled"
-							th:field="*{lastName}" class="form-control" type="text"
-							id="lastName" name="lastName" placeholder="Enter your last name">
+						<label><strong>Last Name&nbsp;</strong></label><input
+							disabled="disabled" th:field="*{lastName}" class="form-control"
+							type="text" id="lastName" name="lastName"
+							placeholder="Enter your last name">
 						<!--END CheckBox totale2-->
 					</div>
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale3-->
-						<label><strong>Date of Birth&nbsp;</strong></label><input disabled="disabled"
-							th:field="*{dateOfBirth}" class="form-control" id="dateOfBirth"
-							type="date" name="dateOfBirth">
+						<label><strong>Date of Birth&nbsp;</strong></label><input
+							disabled="disabled" th:field="*{dateOfBirth}"
+							class="form-control" id="dateOfBirth" type="date"
+							name="dateOfBirth">
 						<!--END CheckBox totale3-->
 					</div>
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale4-->
 						<label><strong>Insurance Number</strong></label> <input
 							disabled="disabled" id="insurance" th:field="*{insuranceNo}"
@@ -107,7 +111,7 @@
 						<!--END CheckBox totale4-->
 					</div>
 
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
 							class="form-control" type="text" id="street" name="street"
@@ -115,28 +119,28 @@
 
 						<!--END CheckBox totale5-->
 					</div>
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale6-->
 						<label><strong>House Number</strong></label><input
 							th:field="*{housenr}" class="form-control" type="text" id="house"
 							name="house" placeholder="Enter your house number">
 						<!--END CheckBox totale6-->
 					</div>
-					<div class = "col-6 col-sm-12 form-group">
+					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale7-->
 						<label><strong>Postcode</strong></label> <input
 							id="intLimitTextBox" th:field="*{postcode}" class="form-control"
 							name="postCode" placeholder="Enter your postcode">
 						<!--END CheckBox totale7-->
 					</div>
-					<div class = "col-lg-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale8-->
 						<label><strong>City</strong></label><input th:field="*{city}"
 							class="form-control" type="text" id="city" name="city"
 							placeholder="Enter your city">
 						<!--END CheckBox totale2-->
 					</div>
-					<div class = "col-lg-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale9-->
 						<label><strong>Phone Number</strong></label><input
 							th:field="*{phonenr}" class="form-control" type="text"
