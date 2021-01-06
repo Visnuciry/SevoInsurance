@@ -82,7 +82,7 @@ public class AuthController {
 		String username = authentication.getName();
 		User user = userService.findByUserName(username);
 		if (user.isRegistrationStatus()) {
-			return "homePageCustomer";
+			return "redirect:/customer";
 		} else {
 			return "redirect:/customer/customerDetailPage";
 		}

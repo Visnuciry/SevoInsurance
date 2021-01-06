@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.SEVO.demo.dto.UserDetailUpdate;
 import com.SEVO.demo.entity.User;
 import com.SEVO.demo.entity.UserDetail;
 import com.SEVO.demo.service.UserDetailISerivceImplementation;
@@ -26,32 +27,30 @@ public class CustomerController {
 	@Autowired
 	private UserDetailISerivceImplementation userDetailservice;
 
-	
-
 	@GetMapping(value = "")
 	public String showMainPage(Authentication authentication) {
 		String username = authentication.getName();
 		User user = userservice.findByUserName(username);
 		if (user.isRegistrationStatus()) {
-			return "homePageCustomer";
+			return "customer/homePageCustomer";
 		} else {
 			return "redirect:/customer/customerDetailPage";
 		}
 
 	}
-	
+
 	@GetMapping("/customerDetailPage")
 	public String getMainCustomerPage(Model model) {
 		UserDetail userDetail = new UserDetail();
 		model.addAttribute(userDetail);
-		return "customerDetailPage";
+		return "customer/customerDetailPage";
 	}
 
 	@PostMapping("/customerDetailPage")
 	public String setCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetail userDetail,
-			 BindingResult bindingResults, Authentication authentication) {
+			BindingResult bindingResults, Authentication authentication) {
 		if (bindingResults.hasErrors()) {
-			return "customerDetailPage";
+			return "customer/customerDetailPage";
 		} else {
 			User currentUser = userservice.findByUserName(authentication.getName());
 
@@ -78,5 +77,43 @@ public class CustomerController {
 
 	}
 
+	@GetMapping("/profilePage")
+	public String getProfilePage(Authentication authentication, Model model) {
+		String username = authentication.getName();
+
+		User user = userservice.findByUserName(username);
+		UserDetail userDetail = userDetailservice.findByUser(user);
+		model.addAttribute(userDetail);
+		return "customer/profilePage";
+
+	}
+	@PostMapping("/profilePage")
+	public String updateCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetailUpdate userDetail,
+			BindingResult bindingResults, Authentication authentication) {
+		
+		if (bindingResults.hasErrors()) {
+			
+			return "redirect:/customer/profilePage";
+			
+		} else {
+			String username = authentication.getName();
+
+			User user = userservice.findByUserName(username);
+			UserDetail tempUserDetail = userDetailservice.findByUser(user);
+
+			tempUserDetail.setId(userDetail.getId());
+			tempUserDetail.setStreet(userDetail.getStreet());
+			tempUserDetail.setHousenr(userDetail.getHousenr());
+			tempUserDetail.setPostcode(userDetail.getPostcode());
+			tempUserDetail.setCity(userDetail.getCity());
+			tempUserDetail.setPhonenr(userDetail.getPhonenr());
+
+			userDetailservice.saveUserDetail(tempUserDetail);
+			return "redirect:/";
+			
+		}
+
+
+	}
 
 }

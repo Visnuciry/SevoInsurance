@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -64,9 +65,10 @@ public class UserDetail {
 	@NotBlank
 	private String city;
 
-	@NotNull
+	@NotBlank
+	@Size(min = 10, max = 10)
 	@Column(name = "phonenr")
-	private Integer phonenr;
+	private String phonenr;
 
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false, updatable = true)
@@ -156,11 +158,11 @@ public class UserDetail {
 		this.city = city;
 	}
 
-	public Integer getPhonenr() {
+	public String getPhonenr() {
 		return phonenr;
 	}
 
-	public void setPhonenr(Integer phonenr) {
+	public void setPhonenr(String phonenr) {
 		this.phonenr = phonenr;
 	}
 

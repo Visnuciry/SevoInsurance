@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Bootstrap</title>
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Cookie">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
+<link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+
+<body>
+	<div>
+		<nav
+			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
+			style="height: 80px; background-color: #37434d; color: #ffffff;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i>&nbsp;SEVO</a>
+				<button data-toggle="collapse" class="navbar-toggler"
+					data-target="#navcol-1">
+					<span class="sr-only">Toggle navigation</span><span
+						class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navcol-1">
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link active"
+							style="color: #ffffff;" href="#"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" href="#"><i class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
+								SEVO</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" href="#"><i
+								class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
+					</ul>
+					<form class="nav-item" method="post" th:action="@{/logout}">
+						<input type="hidden" th:name="${_csrf.parameterName}"
+							th:value="${_csrf.token}" />
+						<button class="nav-item" type="submit">Logout</button>
+					</form>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+	<section class = "container">
+		<div class="form-container">
+			<div class="image-holder"></div>
+			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
+				th:action="@{/customer/profilePage}" th:method="post">
+				<h2 class="text-center">
+					<strong>Your account details</strong><br>
+				</h2>
+				<input type="hidden" th:field = "*{id}" >
+				<!--BEGIN Error-->
+				<!--END Error-->
+				<div class="row">
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale5-->
+						<label><strong>Gender&nbsp;</strong></label> <select disabled="disabled"
+							th:field="*{gender}" class="form-control">
+							<option value="" hidden selected>Select your gender</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+						<!--END CheckBox totale5-->
+					</div>
+
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale1-->
+						<label><strong>First Name&nbsp;</strong></label><input disabled="disabled"
+							th:field="*{surName}" class="form-control" type="text"
+							id="surname" name="surname" placeholder="Enter your first name">
+						<!--END CheckBox totale1-->
+					</div>
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale2-->
+						<label><strong>Last Name&nbsp;</strong></label><input disabled="disabled"
+							th:field="*{lastName}" class="form-control" type="text"
+							id="lastName" name="lastName" placeholder="Enter your last name">
+						<!--END CheckBox totale2-->
+					</div>
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale3-->
+						<label><strong>Date of Birth&nbsp;</strong></label><input disabled="disabled"
+							th:field="*{dateOfBirth}" class="form-control" id="dateOfBirth"
+							type="date" name="dateOfBirth">
+						<!--END CheckBox totale3-->
+					</div>
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale4-->
+						<label><strong>Insurance Number</strong></label> <input
+							disabled="disabled" id="insurance" th:field="*{insuranceNo}"
+							class="form-control" name="insuranceno"
+							placeholder="Enter your Insurance Number">
+						<!--END CheckBox totale4-->
+					</div>
+
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale5-->
+						<label><strong>Street</strong></label><input th:field="*{street}"
+							class="form-control" type="text" id="street" name="street"
+							placeholder="Enter your street">
+
+						<!--END CheckBox totale5-->
+					</div>
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale6-->
+						<label><strong>House Number</strong></label><input
+							th:field="*{housenr}" class="form-control" type="text" id="house"
+							name="house" placeholder="Enter your house number">
+						<!--END CheckBox totale6-->
+					</div>
+					<div class = "col-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale7-->
+						<label><strong>Postcode</strong></label> <input
+							id="intLimitTextBox" th:field="*{postcode}" class="form-control"
+							name="postCode" placeholder="Enter your postcode">
+						<!--END CheckBox totale7-->
+					</div>
+					<div class = "col-lg-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale8-->
+						<label><strong>City</strong></label><input th:field="*{city}"
+							class="form-control" type="text" id="city" name="city"
+							placeholder="Enter your city">
+						<!--END CheckBox totale2-->
+					</div>
+					<div class = "col-lg-6 col-sm-12 form-group">
+						<!--BEGIN CheckBox totale9-->
+						<label><strong>Phone Number</strong></label><input
+							th:field="*{phonenr}" class="form-control" type="text"
+							id="phoneNumber" name="phoneNumber"
+							placeholder="Enter your phone number">
+						<!--END CheckBox totale9-->
+					</div>
+				</div>
+				<div class="form-group">
+					<!--BEGIN Button Button_Update-->
+					<button class="btn btn-primary btn-block"
+						id="sondaggiButton_Update" type="submit">Next</button>
+					<!--END Button Button_Update-->
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+	<div>
+		<a class="btn btn-primary btn-customized open-menu" role="button"><i
+			class="fa fa-navicon"></i>&nbsp;Menu</a>
+		<div class="overlay"></div>
+	</div>
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>
