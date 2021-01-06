@@ -12,9 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -36,11 +34,13 @@ public class UserDetail {
 	@Column(name = "sur_name")
 	@NotBlank
 	private String surName;
-
+	
+	@NotNull
 	@Column(name = "date_of_birth")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateOfBirth;
 
+	@NotNull
 	@Column(name = "insurance_no")
 	private Integer insuranceNo;
 
@@ -52,9 +52,11 @@ public class UserDetail {
 	@NotBlank
 	private String street;
 
+	@NotNull
 	@Column(name = "housenr")
 	private Integer housenr;
 
+	@NotNull
 	@Column(name = "postcode")
 	private Integer postcode;
 
@@ -62,6 +64,7 @@ public class UserDetail {
 	@NotBlank
 	private String city;
 
+	@NotNull
 	@Column(name = "phonenr")
 	private Integer phonenr;
 

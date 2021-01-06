@@ -40,7 +40,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// TODO Auto-generated method stub
 		/*
 		 * http.authorizeRequests().anyRequest().authenticated().and().formLogin().
 		 * loginPage("/login")
@@ -54,8 +53,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 				.accessDeniedPage("/403");*/
 		
 		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register").permitAll()
-		.antMatchers("/customerDetailPage","/customer/**").hasAuthority("CUSTOMER")
-		.antMatchers("/customerDetailPage","/admin/**").hasAuthority("ADMIN")
+		.antMatchers("/customer/**").hasAuthority("CUSTOMER")
+		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.anyRequest().authenticated().and().formLogin()
 		.loginPage("/login").successHandler(sucesshandler).permitAll().and().logout()
 		.deleteCookies("JSESSIONID").permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

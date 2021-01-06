@@ -19,13 +19,11 @@ public class UserServiceImplementation implements UserService{
 
 	@Override
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
 		return userRepository.findAll();
 	}
 
 	@Override
 	public void saveUser(User user) {
-		// TODO Auto-generated method stub
 		userRepository.save(user);
 	}
 

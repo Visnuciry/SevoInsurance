@@ -7,10 +7,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Bootstrap</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
-<link rel="stylesheet" href="assets/css/styles.min.css">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
 </head>
 
 <body>
@@ -21,8 +21,8 @@
 		</h2>
 		<div class="form-container">
 			<div class="image-holder"></div>
-			<form id="sondaggi" name="{HTMLFormName}" th:method="post"
-				th:action="@{/customerDetailPage}" th:object="${userDetail}">
+			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
+				th:action="@{/customer/customerDetailPage}" th:method="post">
 				<h2 class="text-center">
 					<strong>Your account details</strong><br>
 				</h2>
@@ -33,7 +33,7 @@
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Gender&nbsp;</strong></label> <select
 							th:field="*{gender}" class="form-control">
-							<option value="" disabled selected>Select your gender</option>
+							<option value="" hidden selected>Select your gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 						</select>
@@ -119,9 +119,9 @@
 		</div>
 		<!--Comment-->
 	</div>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/script.min.js"></script>
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/script.min.js"></script>
 	<script type="text/javascript">
 		function setInputFilter(textbox, inputFilter) {
 			[ "input", "keydown", "keyup", "mousedown", "mouseup", "select",

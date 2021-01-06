@@ -14,7 +14,6 @@ public class EmailValidatorImplement implements ConstraintValidator<EmailValidat
 
 	@Override
 	public void initialize(EmailValidator constraintAnnotation) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override

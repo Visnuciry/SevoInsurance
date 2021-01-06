@@ -1,9 +1,6 @@
 package com.SEVO.demo.data;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.SEVO.demo.dao.RolesRepository;
-import com.SEVO.demo.dao.UserRepository;
 import com.SEVO.demo.entity.Role;
 import com.SEVO.demo.entity.User;
 import com.SEVO.demo.service.UserServiceImplementation;
