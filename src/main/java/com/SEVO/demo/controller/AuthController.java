@@ -1,5 +1,6 @@
 package com.SEVO.demo.controller;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +34,6 @@ public class AuthController {
 	@Autowired
 	private UserServiceImplementation userservice;
 
-	
-	
 	@Autowired
 	private UserServiceImplementation userService;
 
@@ -51,9 +51,6 @@ public class AuthController {
 		return "register";
 
 	}
-
-	
-
 
 	@PostMapping("/register")
 	public String setUser(@Valid @ModelAttribute("user") User userdata, BindingResult bindingResults) {
@@ -79,14 +76,22 @@ public class AuthController {
 
 	@GetMapping(value = "/")
 	public String showMainPage(Authentication authentication) {
-		String username = authentication.getName();
-		User user = userService.findByUserName(username);
-		if (user.isRegistrationStatus()) {
-			return "redirect:/customer";
+
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+
+		String firstrole = authorities.iterator().next().getAuthority();
+
+		if (firstrole.equals("CUSTOMER")) {
+			String username = authentication.getName();
+			User user = userService.findByUserName(username);
+			if (user.isRegistrationStatus()) {
+				return "redirect:/customer";
+			} else {
+				return "redirect:/customer/customerDetailPage";
+			}
 		} else {
-			return "redirect:/customer/customerDetailPage";
+			return "redirect:/admin";
 		}
 
 	}
-
 }
