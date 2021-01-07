@@ -1,10 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<style>
+body {background-color: #ffffff;}
+h1   {color: blue;}
+h1 	 {text-align: center;}
+h1	 {font-weight: bold;}
+h1	 {font-size: 100px;}
+h2	 {color: black;}
+h2   {text-align: center;}
+h2	 {font-weight: bold;}
+h2	 {font-size: 50px;}
+p    {color: black;}
+p 	 {text-align: center;}
+p	 {font-weight: bold;}
+p	 {font-size: 25px;}
+
+.button {
+  position: relative;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+   margin-right: 20px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -40px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.7s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+.button1 {
+		 background-color: #0000ff;
+		 border-radius: 24px;
+		 } /* aqua */
+.button2 {
+		 background-color: #0000ff;
+		 border-radius: 24px;
+		 } /* aqua */
+		 
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+
+</style>
 </head>
+
 <body>
-<a>Access Denied 403</a>
+
+<h1>Oooops!</h1>
+<h2>403 Forbidden access</h2>
+<p>Please go back or logout from the website</p>
+
+
+
+<div class="flex-parent jc-center">
+<button class="button button1"><span>Go back</span></button>
+
+
+
+
+<button class="button button2"><span>Logout</span></button>
+
+</div>
+
+
+
 </body>
+
 </html>

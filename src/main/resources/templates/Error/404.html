@@ -1,37 +1,123 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Bootstrap</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+<style>
+body {background-color: #ffffff;}
+h1   {color: blue;}
+h1 	 {text-align: center;}
+h1	 {font-weight: bold;}
+h1	 {font-size: 100px;}
+h2	 {color: black;}
+h2   {text-align: center;}
+h2	 {font-weight: bold;}
+h2	 {font-size: 50px;}
+p    {color: black;}
+p 	 {text-align: center;}
+p	 {font-weight: bold;}
+p	 {font-size: 25px;}
+
+.button {
+  position: relative;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+   margin-right: 20px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  }
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -40px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.7s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+.button1 {
+		 background-color: #0000ff;
+		 border-radius: 24px;
+		 } /* aqua */
+.button2 {
+		 background-color: #0000ff;
+		 border-radius: 24px;
+		 } /* aqua */
+		 
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+
+</style>
 </head>
 
 <body>
-    <div class="not-found parallax">
-        <div class="sky-bg"></div>
-        <div class="wave-7"></div>
-        <div class="wave-6"></div><a class="wave-island" href="#"><img src="http://res.cloudinary.com/andrewhani/image/upload/v1524501929/404/island.svg"></a>
-        <div class="wave-5"></div>
-        <div class="wave-lost wrp"><span>4</span><span>0</span><span>4</span></div>
-        <div class="wave-4"></div>
-        <div class="wave-boat"><img class="boat" src="http://res.cloudinary.com/andrewhani/image/upload/v1524501894/404/boat.svg"></div>
-        <div class="wawe-3"></div>
-        <div class="wawe-2"></div>
-        <div class="wawe-1"></div>
-        <div class="wave-message">
-            <p>Your're lost</p>
-            <p>Click on the island to return</p>
-        </div>
-        <div></div>
-        <div></div>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+
+<h1>Oooops!</h1>
+<h2>404 We can't find the page you were looking for</h2>
+<p>Please go back or logout from the website</p>
+
+
+
+<div class="flex-parent jc-center">
+<button class="button button1"><span>Go back</span></button>
+
+
+
+
+<button class="button button2"><span>Logout</span></button>
+
+</div>
+
+
+
 </body>
 
 </html>
