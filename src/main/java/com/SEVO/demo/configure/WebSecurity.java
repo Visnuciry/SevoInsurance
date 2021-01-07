@@ -52,7 +52,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 				.and().exceptionHandling()
 				.accessDeniedPage("/403");*/
 		
-		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register").permitAll()
+		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register","/forgotPassword").permitAll()
 		.antMatchers("/customer/**").hasAuthority("CUSTOMER")
 		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.anyRequest().authenticated().and().formLogin()

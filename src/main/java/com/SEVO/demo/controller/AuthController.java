@@ -52,6 +52,12 @@ public class AuthController {
 
 	}
 
+	@GetMapping("/forgotPassword")
+	public String getForgotPasswordPage () {
+		return "forgotPassword";
+	}
+	
+	
 	@PostMapping("/register")
 	public String setUser(@Valid @ModelAttribute("user") User userdata, BindingResult bindingResults) {
 
