@@ -45,6 +45,14 @@ public class CustomerController {
 		model.addAttribute(userDetail);
 		return "customer/customerDetailPage";
 	}
+	
+	
+	@GetMapping("/Portfolio")
+	public String getPortfolio() {
+		return "customer/Portfolio";
+	}
+
+	
 
 	@PostMapping("/customerDetailPage")
 	public String setCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetail userDetail,
