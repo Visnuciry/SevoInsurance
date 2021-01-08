@@ -14,12 +14,13 @@
 	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/styles.min.css">
+<link rel="stylesheet" href="assets/img/meeting.jpg">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
-
 <body>
 	<div>
+	
 		<nav
 			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
 			style="height: 80px; background-color: #37434d; color: #ffffff;">
@@ -33,69 +34,44 @@
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link active"
-							style="color: #ffffff;" th:href="@{/}"><i class="fa fa-home"></i>&nbsp;Home</a></li>
-						<li class="nav-item"><a class="nav-link"
 							style="color: #ffffff;" th:href="@{/}"><i
-								class="fa fa-wpexplorer"></i>&nbsp;User management</a></li>
+								class="fa fa-home"></i>&nbsp;Home</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;User
-								Product</a></li>
+							style="color: #ffffff;" th:href="@{/customer/profilePage}"><i
+								class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
+								SEVO</a></li>
 						<li class="nav-item"><a class="nav-link"
 							style="color: #ffffff;" href="#"><i
-								class="fa fa-user-circle-o"></i>&nbsp;Product</a></li>
+								class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
+						<li class="nav-item"><a class="nav-link"
+							style="color: #ffffff;" href="#"><i
+								class="fa fa-phone"></i>&nbsp;Contact</a></li>
 					</ul>
 					<form class="nav-item" method="post" th:action="@{/logout}">
 						<input type="hidden" th:name="${_csrf.parameterName}"
 							th:value="${_csrf.token}" />
 						<button class="nav-item" type="submit">Logout</button>
 					</form>
-
 				</div>
 			</div>
 		</nav>
+		<div class="container-fluid padding">
+		<div class="row welcome text-center">
+		<div class="col-12">
+		<h1 class="display-4">Hello "Platzhalter"</h1>
+		
 	</div>
-	<footer>
-		<div class="row">
-			<div class="col-sm-6 col-md-4 footer-navigation">
-				<h3></h3>
-				<p class="links">
-					<a href="#">Home</a><strong> ·&nbsp;</strong><a href="#">Pricing</a><strong>
-						· </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong>
-						· </strong><a href="#">Contact</a>
-				</p>
-				<p class="company-name">SEVO © 2020</p>
-			</div>
-			<div class="col-sm-6 col-md-4 footer-contacts">
-				<div>
-					<span class="fa fa-map-marker footer-contacts-icon"> </span>
-					<p>
-						<span class="new-line-span">Peter Merian-street 86</span> Basel,
-						Switzerland
-					</p>
-				</div>
-				<div>
-					<i class="fa fa-phone footer-contacts-icon"></i>
-					<p class="footer-center-info email text-left">+41 61 100 10 10</p>
-				</div>
-				<div>
-					<i class="fa fa-envelope footer-contacts-icon"></i>
-					<p>
-						<a href="#" target="_blank">SEVO@sevo.com</a>
-					</p>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-4 footer-about">
-				<h4>About the company</h4>
-				<p>Deine Gesundheit in unseren Händen!</p>
-				<div class="social-links social-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-						class="fa fa-twitter"></i></a><a href="#"><i
-						class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<div class="col-12">
+		<p class="lead">SEVO offers a variety of insurance packages, fully customizable and easy to understand</p>
+	</div>	
+</div>
+</div> 
+	</div>
+	</div>
+	
+
 	<div>
 		<a class="btn btn-primary btn-customized open-menu" role="button"><i
 			class="fa fa-navicon"></i>&nbsp;Menu</a>
