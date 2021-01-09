@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,10 @@ import com.SEVO.demo.service.UserServiceImplementation;
 @Controller
 @RequestMapping(path = "/customer")
 public class CustomerController {
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private UserServiceImplementation userservice;
 
@@ -80,6 +85,7 @@ public class CustomerController {
 			tempUserDetail.setPostcode(userDetail.getPostcode());
 			tempUserDetail.setCity(userDetail.getCity());
 			tempUserDetail.setPhonenr(userDetail.getPhonenr());
+			tempUserDetail.setSsnNo(passwordEncoder.encode(userDetail.getSsnNo()));
 			currentUser.setRegistrationStatus(true);
 			tempUserDetail.setUser(currentUser);
 			userDetailservice.saveUserDetail(tempUserDetail);

@@ -69,6 +69,10 @@ public class UserDetail {
 	@Size(min = 10, max = 10)
 	@Column(name = "phonenr")
 	private String phonenr;
+	
+	@NotBlank
+	@Column(name = "ssn_no")
+	private String ssnNo;
 
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false, updatable = true)
@@ -172,6 +176,14 @@ public class UserDetail {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getSsnNo() {
+		return ssnNo;
+	}
+
+	public void setSsnNo(String ssnNo) {
+		this.ssnNo = ssnNo;
 	}
 
 	
