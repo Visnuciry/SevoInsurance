@@ -30,7 +30,7 @@ public class AdminController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@GetMapping(value = "")
+	@GetMapping("")
 	public String showMainPage() {
 		return "admin/HomePageAdmin";
 

@@ -27,7 +27,7 @@ public class CustomerController {
 	@Autowired
 	private UserDetailISerivceImplementation userDetailservice;
 
-	@GetMapping(value = "")
+	@GetMapping("")
 	public String showMainPage(Authentication authentication) {
 		String username = authentication.getName();
 		User user = userservice.findByUserName(username);
