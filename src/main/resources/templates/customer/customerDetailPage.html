@@ -35,7 +35,8 @@
 							th:field="*{gender}" class="form-control">
 							<option value="" hidden selected>Select your gender</option>
 							<option value="Male">Male</option>
-							<option value="Female">Female</option>
+							<option value="Female">Female</option><small th:if="${#fields.hasErrors('gender')}" 
+												class="text-danger">House Number could not be empty</small>
 						</select>
 						<!--END CheckBox totale5-->
 					</div>
@@ -44,27 +45,30 @@
 						<!--BEGIN CheckBox totale1-->
 						<label><strong>First Name&nbsp;</strong></label><input
 							th:field="*{surName}" class="form-control" type="text"
-							id="surname" name="surname" placeholder="Enter your first name">
+							id="surname" name="surname" placeholder="Enter your first name"><small th:if="${#fields.hasErrors('surName')}" 
+												class="text-danger">First Name could not be empty</small>
 						<!--END CheckBox totale1-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale2-->
 						<label><strong>Last Name&nbsp;</strong></label><input
 							th:field="*{lastName}" class="form-control" type="text"
-							id="lastName" name="lastName" placeholder="Enter your last name">
+							id="lastName" name="lastName" placeholder="Enter your last name"><small th:if="${#fields.hasErrors('lastName')}" 
+												class="text-danger">Last Name could not be empty</small>
 						<!--END CheckBox totale2-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale3-->
 						<label><strong>Date of Birth&nbsp;</strong></label><input
 							th:field="*{dateOfBirth}" class="form-control" id="dateOfBirth"
-							type="date" name="dateOfBirth">
+							type="date" name="dateOfBirth"><small th:if="${#fields.hasErrors('dateOfBirth')}" 
+												class="text-danger">Date of Birth could not be null</small>
 						<!--END CheckBox totale3-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale4-->
 						<label><strong>Insurance Number</strong></label> <input
-							id="intLimitTextBox" th:field="*{insuranceNo}"
+							id="intLimitTextBox1" th:field="*{insuranceNo}"
 							class="form-control" name="insuranceno"
 							placeholder="Enter your Insurance Number">
 						<!--END CheckBox totale4-->
@@ -73,38 +77,43 @@
 					<div>
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
-							class="form-control" type="text" id="street" name="street"
-							placeholder="Enter your street">
+							class="form-control is-valid" type="text" id="street" name="street"
+							placeholder="Enter your street"><small th:if="${#fields.hasErrors('street')}" 
+												class="text-danger">Street could not be empty</small>
 
 						<!--END CheckBox totale5-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale6-->
 						<label><strong>House Number</strong></label><input
-							th:field="*{housenr}" class="form-control" type="text" id="house"
-							name="house" placeholder="Enter your house number">
+							th:field="*{housenr}" class="form-control is-valid" type="text" id="intLimitTextBox2"
+							name="house" placeholder="Enter your house number"><small th:if="${#fields.hasErrors('housenr')}" 
+												class="text-danger">House Number could not be empty</small>
 						<!--END CheckBox totale6-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale7-->
-						<label><strong>Postcode</strong></label> <input
+						<label><strong>Postcode</strong></label> <input 
 							id="intLimitTextBox" th:field="*{postcode}" class="form-control"
-							name="postCode" placeholder="Enter your postcode">
+							name="postCode" placeholder="Enter your postcode"><small th:if="${#fields.hasErrors('postcode')}" 
+												class="text-danger">Postcode could not be null</small>
 						<!--END CheckBox totale7-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale8-->
 						<label><strong>City</strong></label><input th:field="*{city}"
 							class="form-control" type="text" id="city" name="city"
-							placeholder="Enter your city">
+							placeholder="Enter your city"><small th:if="${#fields.hasErrors('city')}" 
+												class="text-danger">City could not be empty</small>
 						<!--END CheckBox totale2-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale9-->
 						<label><strong>Phone Number</strong></label><input
 							th:field="*{phonenr}" class="form-control" type="text"
-							id="phoneNumber" name="phoneNumber"
-							placeholder="Enter your phone number">
+							id="intLimitInsuranceBox" name="phoneNumber"
+							placeholder="Enter your phone number"><small th:if="${#fields.hasErrors('phonenr')}" 
+												class="text-danger">Phone Number could not be null</small>
 						<!--END CheckBox totale9-->
 					</div>
 				</div>
@@ -147,11 +156,22 @@
 			return /^\d*$/.test(value)
 					&& (value === "" || parseInt(value) <= 10000);
 		});
+		
+		setInputFilter(document.getElementById("intLimitTextBox1"), function(
+				value) {
+			return /^\d*$/.test(value)
+					&& (value === "" || parseInt(value) <= 1000000);
+		});
 
+		setInputFilter(document.getElementById("intLimitTextBox2"), function(
+				value) {
+			return /^\d*$/.test(value)
+					&& (value === "" || parseInt(value) <= 1000);
+		});
 		setInputFilter(document.getElementById("intLimitInsuranceBox"),
 				function(value) {
 					return /^\d*$/.test(value)
-							&& (value === "" || parseInt(value) <= 10000);
+							&& (value === "" || parseInt(value) <= 1000000000);
 				});
 	</script>
 </body>
