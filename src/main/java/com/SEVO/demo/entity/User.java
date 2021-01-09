@@ -18,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.SEVO.demo.validator.EmailValidator;
 import com.SEVO.demo.validator.UniqueEmailadress;
+import com.SEVO.demo.validator.UniqueUserName;
 
 @Entity
 
@@ -32,6 +33,7 @@ public class User {
 	private int id;
 	@Column(name = "username")
 	@NotBlank
+	@UniqueUserName
 	private String userName;
 	@UniqueEmailadress
 	@EmailValidator

@@ -45,7 +45,7 @@
 						<!--BEGIN CheckBox totale1-->
 						<label><strong>First Name&nbsp;</strong></label><input
 							th:field="*{surName}" class="form-control" type="text"
-							id="surname" name="surname" placeholder="Enter your first name"><small th:if="${#fields.hasErrors('surName')}" 
+							id="surname" name="surname" placeholder="Enter your first name" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"><small th:if="${#fields.hasErrors('surName')}" 
 												class="text-danger">First Name could not be empty</small>
 						<!--END CheckBox totale1-->
 					</div>
@@ -53,7 +53,7 @@
 						<!--BEGIN CheckBox totale2-->
 						<label><strong>Last Name&nbsp;</strong></label><input
 							th:field="*{lastName}" class="form-control" type="text"
-							id="lastName" name="lastName" placeholder="Enter your last name"><small th:if="${#fields.hasErrors('lastName')}" 
+							id="lastName" name="lastName" placeholder="Enter your last name" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"><small th:if="${#fields.hasErrors('lastName')}" 
 												class="text-danger">Last Name could not be empty</small>
 						<!--END CheckBox totale2-->
 					</div>
@@ -77,7 +77,7 @@
 					<div>
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
-							class="form-control is-valid" type="text" id="street" name="street"
+							class="form-control is-valid" type="text" id="street" name="street" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
 							placeholder="Enter your street"><small th:if="${#fields.hasErrors('street')}" 
 												class="text-danger">Street could not be empty</small>
 
@@ -103,14 +103,14 @@
 						<!--BEGIN CheckBox totale8-->
 						<label><strong>City</strong></label><input th:field="*{city}"
 							class="form-control" type="text" id="city" name="city"
-							placeholder="Enter your city"><small th:if="${#fields.hasErrors('city')}" 
+							placeholder="Enter your city" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"><small th:if="${#fields.hasErrors('city')}" 
 												class="text-danger">City could not be empty</small>
 						<!--END CheckBox totale2-->
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale9-->
 						<label><strong>Phone Number</strong></label><input
-							th:field="*{phonenr}" class="form-control" type="text"
+							th:field="*{phonenr}" class="form-control is-valid" type="text"
 							id="intLimitInsuranceBox" name="phoneNumber"
 							placeholder="Enter your phone number"><small th:if="${#fields.hasErrors('phonenr')}" 
 												class="text-danger">Phone Number could not be null</small>

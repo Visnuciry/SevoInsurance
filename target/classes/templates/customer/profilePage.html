@@ -82,7 +82,7 @@
 						<!--BEGIN CheckBox totale1-->
 						<label><strong>First Name&nbsp;</strong></label><input
 							disabled="disabled" th:field="*{surName}" class="form-control"
-							type="text" id="surname" name="surname"
+							type="text" id="surname" name="surname" maxlength="30"
 							placeholder="Enter your first name">
 						<!--END CheckBox totale1-->
 					</div>
@@ -90,7 +90,7 @@
 						<!--BEGIN CheckBox totale2-->
 						<label><strong>Last Name&nbsp;</strong></label><input
 							disabled="disabled" th:field="*{lastName}" class="form-control"
-							type="text" id="lastName" name="lastName"
+							type="text" id="lastName" name="lastName" maxlength="30"
 							placeholder="Enter your last name">
 						<!--END CheckBox totale2-->
 					</div>
@@ -114,15 +114,16 @@
 					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
-							class="form-control" type="text" id="street" name="street"
-							placeholder="Enter your street">
+							class="form-control" type="text" id="street" name="street" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
+							placeholder="Enter your street"><small th:if="${#fields.hasErrors('street')}" 
+												class="text-danger">Street could not be empty</small>
 
 						<!--END CheckBox totale5-->
 					</div>
 					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale6-->
 						<label><strong>House Number</strong></label><input
-							th:field="*{housenr}" class="form-control" type="text" id="house"
+							id="intLimitTextBox1" th:field="*{housenr}" class="form-control" type="text" 
 							name="house" placeholder="Enter your house number">
 						<!--END CheckBox totale6-->
 					</div>
@@ -136,15 +137,15 @@
 					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale8-->
 						<label><strong>City</strong></label><input th:field="*{city}"
-							class="form-control" type="text" id="city" name="city"
+							class="form-control" type="text" id="city" name="city" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
 							placeholder="Enter your city">
 						<!--END CheckBox totale2-->
 					</div>
 					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale9-->
 						<label><strong>Phone Number</strong></label><input
-							th:field="*{phonenr}" class="form-control" type="text"
-							id="phoneNumber" name="phoneNumber"
+							th:field="*{phonenr}" class="form-control " type="text"
+							id="intLimitTextBox2" name="phoneNumber"
 							placeholder="Enter your phone number">
 						<!--END CheckBox totale9-->
 					</div>
@@ -168,6 +169,44 @@
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/js/script.min.js"></script>
+<script type="text/javascript">
+		function setInputFilter(textbox, inputFilter) {
+			[ "input", "keydown", "keyup", "mousedown", "mouseup", "select",
+					"contextmenu", "drop" ].forEach(function(event) {
+				textbox.addEventListener(event, function() {
+					if (inputFilter(this.value)) {
+						this.oldValue = this.value;
+						this.oldSelectionStart = this.selectionStart;
+						this.oldSelectionEnd = this.selectionEnd;
+					} else if (this.hasOwnProperty("oldValue")) {
+						this.value = this.oldValue;
+						this.setSelectionRange(this.oldSelectionStart,
+								this.oldSelectionEnd);
+					} else {
+						this.value = "";
+					}
+				});
+			});
+		}
+
+		setInputFilter(document.getElementById("intLimitTextBox"), function(
+				value) {
+			return /^\d*$/.test(value)
+					&& (value === "" || parseInt(value) <= 10000);
+		});
+		
+		setInputFilter(document.getElementById("intLimitTextBox1"), function(
+				value) {
+			return /^\d*$/.test(value)
+					&& (value === "" || parseInt(value) <= 1000);
+		});
+		setInputFilter(document.getElementById("intLimitTextBox2"), function(
+				value) {
+			return /^\d*$/.test(value)
+					&& (value === "" || parseInt(value) <= 1000000000);
+		});
+		
+	</script>
 </body>
 
 </html>
