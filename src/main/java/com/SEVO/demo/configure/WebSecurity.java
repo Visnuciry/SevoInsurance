@@ -40,17 +40,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/*
-		 * http.authorizeRequests().anyRequest().authenticated().and().formLogin().
-		 * loginPage("/login")
-		 * .loginProcessingUrl("/sendLogin").successHandler(null).permitAll().and().
-		 * logout().permitAll().and() .exceptionHandling().accessDeniedPage("/404");
-		 */
-		/*
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000)
-				.and().exceptionHandling()
-				.accessDeniedPage("/403");*/
+		
 		
 		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register","/forgotPassword").permitAll()
 		.antMatchers("/customer/**").hasAuthority("CUSTOMER")
@@ -61,13 +51,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000).and().exceptionHandling()
 		.accessDeniedPage("/403");
 
-//		http.authorizeRequests()
-//		http.authorizeRequests().antMatchers("/assets/**").permitAll().antMatchers("/register")
-//				.permitAll().antMatchers("/","/customerDetailPage").hasAuthority("CUSTOMER").anyRequest().authenticated().and().formLogin()
-//				.loginPage("/login").permitAll().and().logout()
-//				.deleteCookies("JSESSIONID").permitAll().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.and().rememberMe().key("uniqueAndSecret").tokenValiditySeconds(864000).and().exceptionHandling()
-//				.accessDeniedPage("/403");
+
 		
 	}
 

@@ -80,7 +80,7 @@ public class AuthController {
 
 	}
 
-	@GetMapping("/")
+	@GetMapping("")
 	public String showMainPage(Authentication authentication) {
 
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
