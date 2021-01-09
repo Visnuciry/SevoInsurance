@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Projects - Brand</title>
-   
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap2.min.css">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Projects - Brand</title>
 
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="assets/css/Portfolio.min.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap2.min.css">
+
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+<link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+<link rel="stylesheet" href="assets/css/Portfolio.min.css">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -33,88 +37,106 @@
 
 
 <body>
-   		<nav
-			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
-			style="height: 80px; background-color: #37434d; color: #ffffff;">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i>&nbsp;SEVO</a>
-				<button data-toggle="collapse" class="navbar-toggler"
-					data-target="#navcol-1">
-					<span class="sr-only">Toggle navigation</span><span
-						class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navcol-1">
-					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link active"
-							style="color: #ffffff;" href="/"><i
-								class="fa fa-home"></i>&nbsp;Home</a></li>
-						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="/customer/profilePage"><i
-								class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
-						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
-								SEVO</a></li>
-						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="/customer/Portfolio"><i
-								class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
-					</ul>
-					<form class="nav-item" method="post" action="/logout"><input type="hidden" name="_csrf" value="c23afdbb-0c20-450f-9f3c-007963e2549f"/>
-						<input type="hidden" name="_csrf"
-							value="c23afdbb-0c20-450f-9f3c-007963e2549f" />
-						<button class="nav-item" type="submit">Logout</button>
-					</form>
+	<nav
+		class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
+		style="height: 80px; background-color: #37434d; color: #ffffff;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><i class="fa fa-globe"></i>&nbsp;SEVO</a>
+			<button data-toggle="collapse" class="navbar-toggler"
+				data-target="#navcol-1">
+				<span class="sr-only">Toggle navigation</span><span
+					class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navcol-1">
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link active"
+						style="color: #ffffff;" href="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						style="color: #ffffff;" href="/customer/profilePage"><i
+							class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
+					<li class="nav-item"><a class="nav-link"
+						style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
+							SEVO</a></li>
+					<li class="nav-item"><a class="nav-link"
+						style="color: #ffffff;" href="/customer/Portfolio"><i
+							class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
+					<li class="nav-item">
+						<form method="post" th:action="@{/logout}">
+							<input type="hidden" th:name="${_csrf.parameterName}"
+								th:value="${_csrf.token}" />
+							<button class="btn" type="submit">
+								<i class="fa fa-sign-out"></i> Logout
+							</button>
+						</form>
+					</li>
+				</ul>
 
+
+			</div>
+		</div>
+	</nav>
+	<main class="page projets-page">
+		<section class="portfolio-block project-no-images">
+			<div class="container">
+				<div class="heading">
+					<h2>Product portfolio</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-4 col-xl-4 offset-xl-0">
+						<div class="project-card-no-image">
+							<h3>Product Name</h3>
+							<input type="text">
+							<div class="tags"></div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="project-card-no-image">
+							<h3>From</h3>
+							<input type="text">
+
+							<h3>
+								<br /> To
+							</h3>
+							<input type="text">
+							<div class="tags"></div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="project-card-no-image">
+							<h3>Description</h3>
+							<textarea></textarea>
+							<div class="tags"></div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="project-card-no-image">
+							<h3>Fee</h3>
+							<input type="text">
+							<div class="tags"></div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4"></div>
 				</div>
 			</div>
-		</nav>
-    <main class="page projets-page">
-        <section class="portfolio-block project-no-images">
-            <div class="container">
-                <div class="heading">
-                    <h2>Product portfolio</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 col-xl-4 offset-xl-0">
-                        <div class="project-card-no-image">
-                            <h3>Product Name</h3><input type="text">
-                            <div class="tags"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card-no-image">
-                            <h3>From</h3><input type="text">
-                            
-                            <h3>  <br />  To</h3><input type="text">
-                            <div class="tags"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card-no-image">
-                            <h3>Description</h3><textarea></textarea>
-                            <div class="tags"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card-no-image">
-                            <h3>Fee</h3><input type="text">
-                            <div class="tags"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4"></div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="page-footer">
-        <div class="container">
-            <div class="links"><a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a></div>
-            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
-        </div>
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+		</section>
+	</main>
+	<footer class="page-footer">
+		<div class="container">
+			<div class="links">
+				<a href="#">About me</a><a href="#">Contact me</a><a href="#">Projects</a>
+			</div>
+			<div class="social-icons">
+				<a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
+					class="icon ion-social-instagram-outline"></i></a><a href="#"><i
+					class="icon ion-social-twitter"></i></a>
+			</div>
+		</div>
+	</footer>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+	<script src="assets/js/theme.js"></script>
 </body>
 
 </html>

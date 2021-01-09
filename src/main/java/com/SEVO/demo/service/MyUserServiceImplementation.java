@@ -52,7 +52,7 @@ public class MyUserServiceImplementation implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		return !user.isDeleteFlag();
 	}
 
 	@Override
