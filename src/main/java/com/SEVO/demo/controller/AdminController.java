@@ -76,5 +76,10 @@ public class AdminController {
 			return ResponseEntity.ok("success");
 		}
 	}
+	@PostMapping("deleteUser")
+	public ResponseEntity<?> deleteUser(@RequestBody Integer userId) {
+		userRepository.deleteById(userId);
+		return ResponseEntity.ok(userId);
+	}
 
 }

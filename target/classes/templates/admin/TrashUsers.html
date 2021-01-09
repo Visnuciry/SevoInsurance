@@ -95,6 +95,9 @@
 							<td><a class="btn btn-sm btn-warning"
 								th:onclick="'restoreUser('+${user.getId()}+')'"> <i
 									class="fa fa-window-restore"></i> Restore
+							</a> &nbsp;<a class="btn btn-sm btn-danger"
+								th:onclick="'deleteUser('+${user.getId()}+')'"> <i
+									class="fa fa-trash"></i> Delete
 							</a></td>
 						</tr>
 					</th:block>
@@ -200,6 +203,43 @@
 					        timeout: 600000,
 					        success: function (data) {
 					        	swal("Poof! User has been Restore Success!", {
+								      icon: "success",
+								    }).then(() =>{								    	
+					        			location.reload();
+								    });
+					        },
+					        error: function (e) {
+					        	swal("There were some Error!!! Please try again shortly!!", {
+								      icon: "warning",
+								    });
+					        }
+					    });
+				  } else {
+				    swal("This user is safe!");
+				  }
+				});
+		}
+		
+		function deleteUser(userId) {
+			swal({
+				  title: "Are you sure?",
+				  text: "Once deleted, this user cant be restored!",
+				  icon: "warning",
+				  dangerMode: true,
+				  buttons: ["Oh no!", "Yes Delete!"],
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+					  $.ajax({
+					        type: "POST",
+					        contentType: "application/json",
+					        url: "/admin/deleteUser",
+					        data: JSON.stringify(userId),
+					        dataType: 'json',
+					        cache: false,
+					        timeout: 600000,
+					        success: function (data) {
+					        	swal("Poof! User has been deleted successfully!", {
 								      icon: "success",
 								    }).then(() =>{								    	
 					        			location.reload();
