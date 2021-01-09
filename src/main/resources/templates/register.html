@@ -12,16 +12,16 @@
 <link rel="stylesheet" href="assets/css/styles.min.css">
 
 
+
 </head>
 
 <body>
 	<div class="register-photo">
 		<div class="form-container">
-			<div class="image-holder"></div>
 			<form th:name="myForm" th:id="myForm" th:method="post"
 				th:action="@{/register}" th:object="${user}">
 				<h2 class="text-center">
-					<strong>Create</strong> an account.
+					Create an account.
 				</h2>
 				<div class="form-group">
 					<input th:field="*{emailAddress}" class="form-control is-invalid"
@@ -75,6 +75,9 @@
 		}
 	
 	</script>
+	
+	
+	
 </body>
 
 </html>

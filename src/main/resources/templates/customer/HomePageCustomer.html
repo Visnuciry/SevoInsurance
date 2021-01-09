@@ -6,7 +6,8 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
+
+<title>Customer Page</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Cookie">
@@ -16,13 +17,37 @@
 <link rel="stylesheet" href="assets/css/styles.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<!-- Datatable -->
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css" />
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">	
+
+	
+	<style type="text/css">
+@media only screen and (max-width: 600px) {
+	.mobile-footer-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+	}
+}
+</style>
+	
 </head>
 
 <body>
 	<div>
 		<nav
 			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
-			style="height: 80px; background-color: #37434d; color: #ffffff;">
+			style="height: 80px; background-color: #fff; color: #000;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i>&nbsp;SEVO</a>
 				<button data-toggle="collapse" class="navbar-toggler"
@@ -33,16 +58,16 @@
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link active"
-							style="color: #ffffff;" th:href="@{/}"><i
+							style="color: #000;" th:href="@{/}"><i
 								class="fa fa-home"></i>&nbsp;Home</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" th:href="@{/customer/profilePage}"><i
+							style="color: #000;" th:href="@{/customer/profilePage}"><i
 								class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
+							style="color: #000;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
 								SEVO</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" th:href="@{/customer/Portfolio}"><i
+							style="color: #000;" th:href="@{/customer/Portfolio}"><i
 								class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
 					</ul>
 					<form class="nav-item" method="post" th:action="@{/logout}">
@@ -54,47 +79,57 @@
 				</div>
 			</div>
 		</nav>
+		
 	</div>
-	<footer data-bs-hover-animate="bounce">
-		<div class="row">
-			<div class="col-sm-6 col-md-4 footer-navigation">
-				<h3></h3>
-				<p class="links">
-					<a href="#">Home</a><strong> ·&nbsp;</strong><a href="#">Pricing</a><strong>
-						· </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong>
-						· </strong><a href="#">Contact</a>
-				</p>
-				<p class="company-name">SEVO © 2020</p>
+<footer class="pt-4 pt-md-5 border-top bg-light">
+		<div class="container pb-3">
+			<div class="row">
+				<div class="col-12 col-md mobile-footer-center">
+					<ul class="list-unstyled text-small">
+						<li><a class="link-secondary" href="#">Home</a></li>
+						<li><a class="link-secondary" href="#">Pricing</a></li>
+						<li><a class="link-secondary" href="#">About</a></li>
+						<li><a class="link-secondary" href="#">FAQ</a></li>
+						<li><a class="link-secondary" href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col-12 col-md mobile-footer-center">
+					<div class="d-flex justify-content-start align-items-center">
+						<i class="fa fa-map-marker fa-1x" style="font-size: 2rem"></i>
+						&nbsp;
+						<p>
+							<span>Peter Merian-street 86</span><br /> Basel,Switzerland
+						</p>
+					</div>
+					<div class="d-flex justify-content-start align-items-center">
+						<i class="fa fa-envelope fa-1x" style="font-size: 1.5rem"></i>
+						&nbsp;
+						<p>info.sevo@sevo.com</p>
+					</div>
+					<div class="d-flex justify-content-start align-items-center">
+						<i class="fa fa-phone fa-1x" style="font-size: 1.5rem"></i> &nbsp;
+						<p>+41 61 100 10 10</p>
+					</div>
+				</div>
+				<div class="col-12 col-md mobile-footer-center">
+					<h5>About the Company</h5>
+					<p>Deine Gesundheit in unseren Händen!</p>
+					<div>
+						<a href="#" class="p-1"><i class="fa fa-facebook fa-1x"
+							style="font-size: 1.5rem"></i></a><a href="#" class="p-1"><i
+							class="fa fa-twitter fa-1x" style="font-size: 1.5rem"></i></a><a
+							href="#" class="p-1"><i class="fa fa-linkedin fa-1x"
+							style="font-size: 1.5rem"></i></a><a href="#" class="p-1"><i
+							class="fa fa-github fa-1x" style="font-size: 1.5rem"></i></a>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-6 col-md-4 footer-contacts">
-				<div>
-					<span class="fa fa-map-marker footer-contacts-icon"> </span>
-					<p>
-						<span class="new-line-span">Peter Merian-street 86</span> Basel,
-						Switzerland
-					</p>
-				</div>
-				<div>
-					<i class="fa fa-phone footer-contacts-icon"></i>
-					<p class="footer-center-info email text-left">+41 61 100 10 10</p>
-				</div>
-				<div>
-					<i class="fa fa-envelope footer-contacts-icon"></i>
-					<p>
-						<a href="#" target="_blank">SEVO@sevo.com</a>
-					</p>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="col-md-4 footer-about">
-				<h4>About the company</h4>
-				<p>Deine Gesundheit in unseren Händen!</p>
-				<div class="social-links social-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-						class="fa fa-twitter"></i></a><a href="#"><i
-						class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
+		</div>
+		<div class="bg-secondary text-center">
+			<p class="p-2 text-black" style="margin-block-end: 0;">
+				Copyrights &copy;2021 All rights reserved - <a class="text-black"
+					href="#" target="_blank">SEVO</a>
+			</p>
 		</div>
 	</footer>
 	<div>
