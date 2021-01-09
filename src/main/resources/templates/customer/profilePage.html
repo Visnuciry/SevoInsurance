@@ -23,7 +23,7 @@
 	<div>
 		<nav
 			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button"
-			style="height: 80px; background-color: #37434d; color: #ffffff;">
+			style="height: 80px; background-color: #fff; color: #000;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i>&nbsp;SEVO</a>
 				<button data-toggle="collapse" class="navbar-toggler"
@@ -34,16 +34,17 @@
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" th:href="@{/}"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+							style="color: #000;" th:href="@{/}"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" th:href="@{/customer/profilePage}"><i
+							style="color: #000;" th:href="@{/customer/profilePage}"><i
 								class="fa fa-wpexplorer"></i>&nbsp;Profile</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
+							style="color: #000;" href="#"><i class="fa fa-star-o"></i>&nbsp;About
 								SEVO</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #ffffff;" href="#"><i
+							style="color: #000;" href="#"><i
 								class="fa fa-user-circle-o"></i>&nbsp;Portfolio</a></li>
+								
 					</ul>
 					<form class="nav-item" method="post" th:action="@{/logout}">
 						<input type="hidden" th:name="${_csrf.parameterName}"
