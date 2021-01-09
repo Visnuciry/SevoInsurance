@@ -32,7 +32,7 @@ public class CustomerController {
 		String username = authentication.getName();
 		User user = userservice.findByUserName(username);
 		if (user.isRegistrationStatus()) {
-			return "customer/homePageCustomer";
+			return "customer/HomePageCustomer";
 		} else {
 			return "redirect:/customer/customerDetailPage";
 		}
@@ -50,6 +50,11 @@ public class CustomerController {
 	@GetMapping("/Portfolio")
 	public String getPortfolio() {
 		return "customer/Portfolio";
+	}
+	
+	@GetMapping("/Contact")
+	public String getContactPage() {
+		return "customer/Contact";
 	}
 
 	

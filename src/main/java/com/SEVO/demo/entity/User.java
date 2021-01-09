@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import com.SEVO.demo.validator.EmailValidator;
 import com.SEVO.demo.validator.UniqueEmailadress;
 import com.SEVO.demo.validator.UniqueUserName;
@@ -37,7 +39,6 @@ public class User {
 	private String userName;
 	@UniqueEmailadress
 	@EmailValidator
-	@NotBlank
 	@Column(name = "email_address")
 	private String emailAddress;
 	@Column(name = "password")
@@ -45,6 +46,11 @@ public class User {
 	private String password;
 	@Column (name = "registrationstatus")
 	private boolean registrationStatus;
+	
+
+	@Column(name = "deleteFlag")
+	@Value("${false}")
+	private boolean deleteFlag;
 	
 
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -120,6 +126,14 @@ public class User {
 
 	public void setRegistrationStatus(boolean registrationStatus) {
 		this.registrationStatus = registrationStatus;
+	}
+
+	public boolean isDeleteFlag() {
+		return deleteFlag;
+	}
+
+	public void setDeleteFlag(boolean deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 
 	
