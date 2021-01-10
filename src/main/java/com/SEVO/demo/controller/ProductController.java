@@ -21,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.SEVO.demo.dao.ProductRepository;
 import com.SEVO.demo.entity.Product;
-import com.SEVO.demo.entity.User;
 
 @Controller
 @RequestMapping(path = "/admin/product")

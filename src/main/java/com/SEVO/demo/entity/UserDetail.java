@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.SEVO.demo.validator.UniqueInsuranceNo;
+
 @Entity
 
 @Table(name = "user_details")
@@ -41,7 +43,7 @@ public class UserDetail {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateOfBirth;
 
-	@NotNull
+	@UniqueInsuranceNo
 	@Column(name = "insurance_no")
 	private Integer insuranceNo;
 

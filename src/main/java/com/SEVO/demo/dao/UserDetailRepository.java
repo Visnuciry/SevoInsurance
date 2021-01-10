@@ -9,5 +9,5 @@ public interface UserDetailRepository extends JpaRepository<UserDetail, Integer>
 	
 	
 	public UserDetail findByUser (User user); 
-
+	public boolean existsByInsuranceNo(Integer insuranceNo);
 }

@@ -76,7 +76,9 @@
 						<label><strong>Insurance Number</strong></label> <input
 							id="intLimitTextBox1" th:field="*{insuranceNo}"
 							class="form-control" name="insuranceno"
-							placeholder="Enter your Insurance Number">
+							placeholder="Enter your Insurance Number"><small
+						th:if="${#fields.hasErrors('insuranceNo')}" th:errors="*{insuranceNo}"
+						class="invalid-feedback"></small>
 						<!--END CheckBox totale4-->
 					</div>
 					<div>

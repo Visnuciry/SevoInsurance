@@ -1,40 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Cookie">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
-<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	
-	<style type="text/css">
-
-@media only screen and (max-width: 600px) {
-	.mobile-footer-center {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
-	}
-}
-</style>
-	
 </head>
-
 <body>
-	<header th:replace="/admin/fragment/header::header"></header>
-<footer class="pt-4 pt-md-5 border-top bg-light">
+	<footer class="pt-4 pt-md-5 border-top bg-light" th:fragment="footer">
 		<div class="container pb-3">
 			<div class="row">
 				<div class="col-12 col-md mobile-footer-center">
@@ -66,7 +36,7 @@
 				</div>
 				<div class="col-12 col-md mobile-footer-center">
 					<h5>About the Company</h5>
-					<p>Deine Gesundheit in unseren Händen!</p>
+					<p>Deine Gesundheit in unseren H�nden!</p>
 					<div>
 						<a href="#" class="p-1"><i class="fa fa-facebook fa-1x"
 							style="font-size: 1.5rem"></i></a><a href="#" class="p-1"><i
@@ -79,20 +49,11 @@
 			</div>
 		</div>
 		<div class="bg-secondary text-center">
-			<p class="p-2 text-black" style="margin-block-end: 0;">
-				Copyrights &copy;2021 All rights reserved - <a class="text-black"
+			<p class="p-2 text-white" style="margin-block-end: 0;">
+				Copyrights &copy;2021 All rights reserved - <a class="text-white"
 					href="#" target="_blank">SEVO</a>
 			</p>
 		</div>
 	</footer>
-	<div>
-		<a class="btn btn-primary btn-customized open-menu" role="button"><i
-			class="fa fa-navicon"></i>&nbsp;Menu</a>
-		<div class="overlay"></div>
-	</div>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/script.min.js"></script>
 </body>
-
 </html>

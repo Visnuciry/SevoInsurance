@@ -1,5 +1,6 @@
 package com.SEVO.demo.entity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -52,6 +54,8 @@ public class User {
 	@Value("${false}")
 	private boolean deleteFlag;
 	
+	@OneToMany(mappedBy = "ownerId", cascade = CascadeType.ALL)
+	private List<UserProducts> userproducts;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userrolls", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "roll_id", referencedColumnName = "rolls_id"))
@@ -134,6 +138,14 @@ public class User {
 
 	public void setDeleteFlag(boolean deleteFlag) {
 		this.deleteFlag = deleteFlag;
+	}
+
+	public List<UserProducts> getUserproducts() {
+		return userproducts;
+	}
+
+	public void setUserproducts(List<UserProducts> userproducts) {
+		this.userproducts = userproducts;
 	}
 
 	

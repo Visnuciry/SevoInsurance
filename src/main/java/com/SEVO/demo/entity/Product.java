@@ -1,10 +1,14 @@
 package com.SEVO.demo.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -26,6 +30,9 @@ public class Product {
 	@NotBlank
 	@Column(name = "product_description")
 	private String productDescription;
+	
+	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.ALL)
+	private List<UserProducts> userproducts;
 
 	public Product() {
 		
@@ -53,6 +60,14 @@ public class Product {
 
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
+	}
+
+	public List<UserProducts> getUserproducts() {
+		return userproducts;
+	}
+
+	public void setUserproducts(List<UserProducts> userproducts) {
+		this.userproducts = userproducts;
 	}
 
 	

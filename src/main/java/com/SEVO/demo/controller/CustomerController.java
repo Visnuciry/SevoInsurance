@@ -67,6 +67,8 @@ public class CustomerController {
 	@PostMapping("/customerDetailPage")
 	public String setCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetail userDetail,
 			BindingResult bindingResults, Authentication authentication) {
+		
+		System.out.println(bindingResults);
 		if (bindingResults.hasErrors()) {
 			return "customer/customerDetailPage";
 		} else {
