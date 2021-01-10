@@ -115,7 +115,7 @@
 					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
-							class="form-control is-invalid" type="text" id="street" name="street" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
+							class="form-control" type="text" id="street" name="street" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
 							placeholder="Enter your street"><small th:if="${#fields.hasErrors('street')}" 
 												class="text-danger">Street could not be empty</small>
 
