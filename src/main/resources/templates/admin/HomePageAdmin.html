@@ -54,8 +54,8 @@
 							style="color: #000;" href="#"><i class="fa fa-star-o"></i>&nbsp;User
 								Product</a></li>
 						<li class="nav-item"><a class="nav-link"
-							style="color: #000;" href="#"><i
-								class="fa fa-user-circle-o"></i>&nbsp;Product</a></li>
+							style="color: #000;" th:href="@{/admin/product}"><i
+								class="fa fa-user-circle-o" ></i>&nbsp;Product</a></li>
 					</ul>
 					<form class="nav-item" method="post" th:action="@{/logout}">
 						<input type="hidden" th:name="${_csrf.parameterName}"
