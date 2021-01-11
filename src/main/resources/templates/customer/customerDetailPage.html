@@ -17,21 +17,21 @@
 	<div class="register-photo">
 		<!--BEGIN Record sondaggi-->
 		<h2 class="text-center">
-			<strong>Welcome to SEVO</strong><br>
+			<strong style="color: white;">Welcome to SEVO</strong>
 		</h2>
 		<div class="form-container">
 			<div class="image-holder"></div>
 			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
 				th:action="@{/customer/customerDetailPage}" th:method="post">
 				<h2 class="text-center">
-					<strong>Your account details</strong><br>
+					<strong style="color: white;">Your account details</strong>
 				</h2>
 				<!--BEGIN Error-->
 				<!--END Error-->
 				<div class="form-group">
 					<div>
 						<!--BEGIN CheckBox totale5-->
-						<label><strong>Gender&nbsp;</strong></label> <select
+						<label><strong style="color: white;">Gender&nbsp;</strong></label> <select
 							th:field="*{gender}" class="form-control">
 							<option value="" hidden selected>Select your gender</option>
 							<option value="Male">Male</option>
@@ -44,7 +44,7 @@
 
 					<div>
 						<!--BEGIN CheckBox totale1-->
-						<label><strong>First Name&nbsp;</strong></label><input
+						<label><strong style="color: white;">First Name&nbsp;</strong></label><input
 							th:field="*{surName}" class="form-control" type="text"
 							id="surname" name="surname" placeholder="Enter your first name"
 							maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"><small
@@ -54,7 +54,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale2-->
-						<label><strong>Last Name&nbsp;</strong></label><input
+						<label><strong style="color: white;">Last Name&nbsp;</strong></label><input
 							th:field="*{lastName}" class="form-control" type="text"
 							id="lastName" name="lastName" placeholder="Enter your last name"
 							maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"><small
@@ -64,7 +64,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale3-->
-						<label><strong>Date of Birth&nbsp;</strong></label><input
+						<label><strong style="color: white;">Date of Birth&nbsp;</strong></label><input
 							th:field="*{dateOfBirth}" class="form-control" id="dateOfBirth"
 							type="date" name="dateOfBirth"><small
 							th:if="${#fields.hasErrors('dateOfBirth')}" class="text-danger">Date
@@ -73,7 +73,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale4-->
-						<label><strong>Insurance Number</strong></label> <input
+						<label><strong style="color: white;">Insurance Number</strong></label> <input
 							id="intLimitTextBox1" th:field="*{insuranceNo}"
 							class="form-control" name="insuranceno"
 							placeholder="Enter your Insurance Number"><small
@@ -83,7 +83,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale6-->
-						<label><strong>Social security number</strong></label><input
+						<label><strong style="color: white;">Social security number</strong></label><input
 							th:field="*{ssnNo}" class="form-control is-valid" type="text"
 							id="intLimitTextBox3" name="ssno"
 							placeholder="Enter your social security number"><small
@@ -92,7 +92,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale5-->
-						<label><strong>Street</strong></label><input th:field="*{street}"
+						<label><strong style="color: white;">Street</strong></label><input th:field="*{street}"
 							class="form-control is-valid" type="text" id="street"
 							name="street" maxlength="30"
 							onkeypress="return /[a-z]/i.test(event.key)"
@@ -104,7 +104,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale6-->
-						<label><strong>House Number</strong></label><input
+						<label><strong style="color: white;">House Number</strong></label><input
 							th:field="*{housenr}" class="form-control is-valid" type="text"
 							id="intLimitTextBox2" name="house"
 							placeholder="Enter your house number"><small
@@ -114,7 +114,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale7-->
-						<label><strong>Postcode</strong></label> <input
+						<label><strong style="color: white;">Postcode</strong></label> <input
 							id="intLimitTextBox" th:field="*{postcode}" class="form-control"
 							name="postCode" placeholder="Enter your postcode"><small
 							th:if="${#fields.hasErrors('postcode')}" class="text-danger">Postcode
@@ -123,7 +123,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale8-->
-						<label><strong>City</strong></label><input th:field="*{city}"
+						<label><strong style="color: white;">City</strong></label><input th:field="*{city}"
 							class="form-control" type="text" id="city" name="city"
 							placeholder="Enter your city" maxlength="30"
 							onkeypress="return /[a-z]/i.test(event.key)"><small
@@ -133,7 +133,7 @@
 					</div>
 					<div>
 						<!--BEGIN CheckBox totale9-->
-						<label><strong>Phone Number</strong></label><input
+						<label><strong style="color: white;">Phone Number</strong></label><input
 							th:field="*{phonenr}" class="form-control is-valid" type="text"
 							id="intLimitInsuranceBox" name="phoneNumber"
 							placeholder="Enter your phone number"><small

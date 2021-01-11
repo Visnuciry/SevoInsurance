@@ -537,12 +537,15 @@ div.social-links {
 
 .register-photo {
 	background: url(../../assets/img/star-sky.jpg) 0 0/cover #475d62;
-	padding: 12.96vw
+	min-height: 100vh
+	position: relative;
+	padding-bottom: 11px;
 }
 
 .register-photo .image-holder {
 	display: table-cell;
-	width: auto;
+	max-width: 100%;
+    max-height: 100%;
 	background: url(../../assets/img/meeting.jpg) 0 0/cover
 }
 
