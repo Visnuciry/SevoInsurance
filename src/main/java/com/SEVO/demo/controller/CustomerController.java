@@ -22,10 +22,10 @@ import com.SEVO.demo.service.UserServiceImplementation;
 @Controller
 @RequestMapping(path = "/customer")
 public class CustomerController {
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private UserServiceImplementation userservice;
 
@@ -50,29 +50,27 @@ public class CustomerController {
 		model.addAttribute(userDetail);
 		return "customer/customerDetailPage";
 	}
-	
-	
+
 	@GetMapping("/Portfolio")
 	public String getPortfolio() {
 		return "customer/Portfolio";
 	}
-	
+
 	@GetMapping("/AboutUs")
 	public String getAboutUs() {
 		return "customer/AboutUs";
 	}
-	
+
 	@GetMapping("/Contact")
 	public String getContactPage() {
 		return "customer/Contact";
 	}
 
 	
-
 	@PostMapping("/customerDetailPage")
 	public String setCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetail userDetail,
 			BindingResult bindingResults, Authentication authentication) {
-		
+
 		System.out.println(bindingResults);
 		if (bindingResults.hasErrors()) {
 			return "customer/customerDetailPage";
@@ -113,14 +111,15 @@ public class CustomerController {
 		return "customer/profilePage";
 
 	}
+
 	@PostMapping("/profilePage")
 	public String updateCustomerDetail(@Valid @ModelAttribute("userDetail") UserDetailUpdate userDetail,
 			BindingResult bindingResults, Authentication authentication) {
-		
+
 		if (bindingResults.hasErrors()) {
-			
+
 			return "redirect:/customer/profilePage";
-			
+
 		} else {
 			String username = authentication.getName();
 
@@ -136,9 +135,8 @@ public class CustomerController {
 
 			userDetailservice.saveUserDetail(tempUserDetail);
 			return "redirect:/";
-			
-		}
 
+		}
 
 	}
 

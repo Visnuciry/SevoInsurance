@@ -32,6 +32,7 @@ public class AdminController {
 
 	@GetMapping("")
 	public String showMainPage() {
+//		return "admin/HomePageAdmin";
 		return "admin/HomePageAdmin";
 
 	}
