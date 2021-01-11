@@ -54,14 +54,14 @@ public class User {
 	@Value("${false}")
 	private boolean deleteFlag;
 	
-	@OneToMany(mappedBy = "ownerId", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "ownerId", cascade = CascadeType.REFRESH)
 	private List<UserProducts> userproducts;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "userrolls", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "roll_id", referencedColumnName = "rolls_id"))
 	private Set<Role> rolesSet;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "user")
 
 	private UserDetail userDetail;
 

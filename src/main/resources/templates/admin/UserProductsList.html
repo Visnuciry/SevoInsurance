@@ -64,9 +64,15 @@
 							<td th:text="${user.getEmailAddress()}">Otto</td>
 
 							<td><a th:href="@{|/admin/usersproduct/${user.getId()}|}"
-								class="btn btn-outline-success btn-sm"> <i class="fa fa-plus"></i>
-									Add product
+								class="btn btn-outline-success btn-sm"> <i
+									class="fa fa-plus"></i> Add product
+							</a> &nbsp; <a
+								th:href="@{|/admin/usersproduct/user/${user.getId()}|}"
+								class="btn btn-outline-info btn-sm"> <i class="fa fa-eye"></i>
+									View products
 							</a></td>
+
+
 						</tr>
 					</th:block>
 

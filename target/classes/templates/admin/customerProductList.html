@@ -52,27 +52,25 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Username</th>
-						<th scope="col">Email</th>
+						<th scope="col">Product</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<th:block th:each="user,iter : ${users}">
+					<th:block th:each="userProduct,iter : ${userProducts}">
 						<tr>
 							<th scope="row" th:text="${iter.index + 1}">1</th>
-							<td th:text="${user.getUserName()}">Mark</td>
-							<td th:text="${user.getEmailAddress()}">Otto</td>
+							<td th:text="${userProduct.getOwnerId().getUserName()}">Mark</td>
+							<td th:text="${userProduct.getUserproductId().getProductName()}">Otto</td>
 
-							<td><a th:href="@{|/admin/usersproduct/${user.getId()}|}"
-								class="btn btn-outline-success btn-sm"> <i
-									class="fa fa-plus"></i> Add product
-							</a> &nbsp; <a
-								th:href="@{|/admin/usersproduct/user/${user.getId()}|}"
-								class="btn btn-outline-info btn-sm"> <i class="fa fa-eye"></i>
-									View products
+							<td><a
+								th:href="@{|/admin/usersproduct/product/${userProduct.getId()}|}"
+								class="btn btn-outline-info btn-sm"> <i class="fa fa-edit"></i>
+									Edit product
+							</a> &nbsp; <a href="#" class="btn btn-outline-danger btn-sm"
+								th:onclick="'deleteUserProduct('+${userProduct.getId()}+')'">
+									<i class="fa fa-trash"></i> Delete Product
 							</a></td>
-
-
 						</tr>
 					</th:block>
 
@@ -159,6 +157,42 @@
 				}
 			});
 		});
+		function deleteUserProduct(userProductId) {
+			swal({
+				  title: "Are you sure?",
+				  text: "Once deleted, this Customer product will permanently deleted!",
+				  icon: "warning",
+				  dangerMode: true,
+				  buttons: ["Oh no!", "Yes Delete!"],
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+					  $.ajax({
+					        type: "POST",
+					        contentType: "application/json",
+					        url: "/admin/usersproduct/userProductDelete",
+					        data: JSON.stringify(userProductId),
+					        dataType: 'json',
+					        cache: false,
+					        timeout: 600000,
+					        success: function (data) {
+					        	swal("Poof! Customer product has been deleted!", {
+								      icon: "success",
+								    }).then(() =>{								    	
+					        			location.reload();
+								    });
+					        },
+					        error: function (e) {
+					        	swal("There were some Error!!! Please try again shortly!!", {
+								      icon: "warning",
+								    });
+					        }
+					    });
+				  } else {
+				    swal("This customer product is safe!");
+				  }
+				});
+		}
 	</script>
 </body>
 

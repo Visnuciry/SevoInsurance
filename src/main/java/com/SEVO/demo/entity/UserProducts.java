@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,21 +26,24 @@ public class UserProducts {
 	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "userproduct_id")
 	private Product userproductId;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "owner_id")
 	private User ownerId;
 	
+	@NotBlank
 	@Column(name = "productfee")
 	private String productfee;
 	
+	@NotNull
 	@Column(name = "productvalidfrom")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate productvalidfrom;
 	
+	@NotNull
 	@Column(name = "productvalidto")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate productvalidto;

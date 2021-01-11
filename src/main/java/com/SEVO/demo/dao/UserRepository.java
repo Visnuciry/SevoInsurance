@@ -18,7 +18,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	
 	@Override
-	@Query("select e from #{#entityName} e where e.deleteFlag=false and e.id!=67")
+	@Query("select e from #{#entityName} e where e.deleteFlag=false and e.id!=1")
 	public List<User> findAll();
 
 	@Query("select e from #{#entityName} e where e.deleteFlag=true")

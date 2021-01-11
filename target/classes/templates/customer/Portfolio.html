@@ -48,33 +48,33 @@
 					<div class="col-md-6 col-lg-4 col-xl-4 offset-xl-0">
 						<div class="project-card-no-image">
 							<h3>Product Name</h3>
-							<input type="text">
+							<input type="text" th:value="${product.getUserproductId().getProductName()}">
 							<div class="tags"></div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-4">
 						<div class="project-card-no-image">
 							<h3>From</h3>
-							<input type="text">
+							<input type="text" th:value="${product.getProductvalidfrom()}">
 
 							<h3>
 								<br /> To
 							</h3>
-							<input type="text">
+							<input type="text" th:value="${product.getProductvalidto()}">
 							<div class="tags"></div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-4">
 						<div class="project-card-no-image">
 							<h3>Description</h3>
-							<textarea></textarea>
+							<textarea th:placeholder="${product.getUserproductId().getProductDescription()}"></textarea>
 							<div class="tags"></div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-4">
 						<div class="project-card-no-image">
 							<h3>Fee</h3>
-							<input type="text">
+							<input type="text" th:value="${product.getProductfee()}">
 							<div class="tags"></div>
 						</div>
 					</div>

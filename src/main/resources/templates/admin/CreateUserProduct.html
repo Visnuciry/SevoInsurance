@@ -39,13 +39,15 @@
 			<form th:name="myForm" th:id="myForm" th:method="post"
 				th:action="@{/admin/usersproduct/createUserProduct}"
 				th:object="${userproducts}">
-				<h3 class="text-center">Add Product to User</h3>
+				<h3 class="text-center" th:if="${!formStatus}">Add Product to User</h3>
+				<h3 class="text-center" th:if="${formStatus}">Edit Product to User</h3>
 				<div class="row">
 
 					<div class="form-group col-12">
-						<label>Customer Name</label>
-						<input type="hidden" th:field="*{ownerId}" />
-						<input type="text" class="form-control" th:placeholder="${customerName.getUserName()}" disabled="disabled"/>
+						<label>Customer Name</label> <input type="hidden"
+							th:field="*{ownerId}" /> <input type="text" class="form-control"
+							th:placeholder="${customerName.getUserName()}" /> <input
+							type="hidden" th:if="${formStatus}" th:field="*{id}">
 					</div>
 					<div class="form-group col-12">
 						<label>Products</label> <select class="form-control"
@@ -69,7 +71,10 @@
 					</div>
 					<div class="form-group col-12">
 						<button type="submit"
-							class="btn btn-sm btn-outline-warning form-control">Create
+							class="btn btn-sm btn-outline-info form-control" th:if="${!formStatus}">Create
+							Product</button>
+							<button type="submit"
+							class="btn btn-sm btn-outline-warning form-control" th:if="${formStatus}">Update
 							Product</button>
 					</div>
 				</div>

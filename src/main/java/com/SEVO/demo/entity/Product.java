@@ -31,7 +31,7 @@ public class Product {
 	@Column(name = "product_description")
 	private String productDescription;
 	
-	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.REFRESH)
 	private List<UserProducts> userproducts;
 
 	public Product() {
