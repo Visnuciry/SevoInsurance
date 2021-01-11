@@ -4,80 +4,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
 }
 
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 .column {
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+	float: left;
+	width: 25%;
+	margin-bottom: 16px;
+	padding: 0 8px;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin: 8px;
 }
 
 .about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-  
+	padding: 50px;
+	text-align: center;
+	background-color: #474e5d;
+	color: white;
 }
 
 .container {
-  padding: 0 16px;
+	padding: 0 16px;
 }
 
 .container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .title {
-  color: grey;
+	color: grey;
 }
 
 .button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
+	border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 8px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
 }
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
 
 .button:hover {
-  background-color: #555;
+	background-color: #555;
 }
 
 @media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
+	.column {
+		width: 100%;
+		display: block;
+	}
 }
 </style>
 
@@ -97,71 +96,99 @@ html {
 </head>
 <body>
 
-	<header th:replace="/customer/fragment/Header::header"></header>
+	<header th:insert="customer/fragment/Header::header"></header>
 
 
-<div class="about-section">
-  <h1>About Us</h1>
-  <p> <br/> SEVO Insurance was founded in 2020 by four Business Information Technology students at the FHNW Basel.</p>
-  <p>Our goal is to assure swift and competent advices to our clients, 
-   concering any requests or issues in the context of insurances.</p>
-   <br/>
-</div>
+	<div class="about-section">
+		<h1>About Us</h1>
+		<p>
+			<br /> SEVO Insurance was founded in 2020 by four Business
+			Information Technology students at the FHNW Basel.
+		</p>
+		<p>Our goal is to assure swift and competent advices to our
+			clients, concering any requests or issues in the context of
+			insurances.</p>
+		<br />
+	</div>
 
 
-<img src="../../assets/img/matterhorn.jpg" alt="Matterhorn" class="center">
+	<img src="../../assets/img/matterhorn.jpg" alt="Matterhorn"
+		class="center">
 
 
-<h2 style="text-align:center"> <br/> <br/> Our Team <br/> <br/>  </h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2> <br/> Egzon Cenaj <br/> <br/></h2>
-        <p class="title">CEO & Founder</p>
-        <p>The leading force behind SEVO Insurances.</p>
-        <p>egzon.cenaj@students.fhnw.ch</p>
-        <p><button class="button">Tel: +41 61 555 40 00</button></p>
-      </div>
-    </div>
-  </div>
+	<h2 style="text-align: center">
+		<br /> <br /> Our Team <br /> <br />
+	</h2>
+	<div class="row">
+		<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>
+						<br /> Egzon Cenaj <br /> <br />
+					</h2>
+					<p class="title">CEO & Founder</p>
+					<p>The leading force behind SEVO Insurances.</p>
+					<p>egzon.cenaj@students.fhnw.ch</p>
+					<p>
+						<button class="button">Tel: +41 61 555 40 00</button>
+					</p>
+				</div>
+			</div>
+		</div>
 
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2> <br/> Visnuciry Vairavipillai <br/> <br/></h2>
-        <p class="title">Software Engineer</p>
-        <p>Responsible for SEVO's applications and cyber security.</p>
-        <p>visnuciry.vairavipillai@students.fhnw.ch</p>
-        <p><button class="button">Tel: +41 61 555 40 10</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2> <br/> Oliver Markovic <br/> <br/></h2>
-        <p class="title">Advisor</p>
-        <p>Contact person for our business customers.</p>
-        <p>oliver.markovic@students.fhnw.ch</p>
-        <p><button class="button">Tel: +41 61 555 40 20</button></p>
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2> <br/> Sascha Meier <br/> <br/></h2>
-        <p class="title">Advisor</p>
-        <p>Contact person for our private customers.</p>
-        <p>sascha.meier@students.fhnw.ch</p>
-        <p><button class="button">Tel: +41 61 555 40 30</button></p>
-      </div>
-    </div>
-  </div>
-</div>
+		<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>
+						<br /> Visnuciry Vairavipillai <br /> <br />
+					</h2>
+					<p class="title">Software Engineer</p>
+					<p>Responsible for SEVO's applications and cyber security.</p>
+					<p>visnuciry.vairavipillai@students.fhnw.ch</p>
+					<p>
+						<button class="button">Tel: +41 61 555 40 10</button>
+					</p>
+				</div>
+			</div>
+		</div>
 
+		<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>
+						<br /> Oliver Markovic <br /> <br />
+					</h2>
+					<p class="title">Advisor</p>
+					<p>Contact person for our business customers.</p>
+					<p>oliver.markovic@students.fhnw.ch</p>
+					<p>
+						<button class="button">Tel: +41 61 555 40 20</button>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="card">
+				<div class="container">
+					<h2>
+						<br /> Sascha Meier <br /> <br />
+					</h2>
+					<p class="title">Advisor</p>
+					<p>Contact person for our private customers.</p>
+					<p>sascha.meier@students.fhnw.ch</p>
+					<p>
+						<button class="button">Tel: +41 61 555 40 30</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+	<script src="/assets/js/theme.js"></script>
 </body>
 </html>

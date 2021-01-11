@@ -11,13 +11,21 @@
 <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
 <link rel="stylesheet" href="assets/css/styles.min.css">
 
-
+<style type="text/css">
+.body-center{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+</style>
 
 </head>
 
 <body>
 	<div class="register-photo">
-		<div class="form-container">
+		<div class="form-container body-center" >
 			<form th:name="myForm" th:id="myForm" th:method="post"
 				th:action="@{/register}" th:object="${user}">
 				<h2 class="text-center">

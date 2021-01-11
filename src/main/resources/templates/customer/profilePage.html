@@ -15,12 +15,21 @@
 <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
+<style type="text/css">
+.body-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	min-height: 100vh;
+}
+</style>
 </head>
 
 <body>
-	<header th:replace="/customer/fragment/Header::header"></header>
-	<section class="container">
+	<header th:insert="customer/fragment/Header::header"></header>
+	<section class="container body-center">
 		<div class="form-container">
 			<div class="image-holder"></div>
 			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
@@ -79,17 +88,19 @@
 					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
-							class="form-control" type="text" id="street" name="street" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
-							placeholder="Enter your street"><small th:if="${#fields.hasErrors('street')}" 
-												class="text-danger">Street could not be empty</small>
+							class="form-control" type="text" id="street" maxlength="30"
+							onkeypress="return /[a-z]/i.test(event.key)"
+							placeholder="Enter your street"><small
+							th:if="${#fields.hasErrors('street')}" class="text-danger">Street
+							could not be empty</small>
 
 						<!--END CheckBox totale5-->
 					</div>
 					<div class="col-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale6-->
 						<label><strong>House Number</strong></label><input
-							id="intLimitTextBox1" th:field="*{housenr}" class="form-control" type="text" 
-							name="house" placeholder="Enter your house number">
+							id="intLimitTextBox1" th:field="*{housenr}" class="form-control"
+							type="text" name="house" placeholder="Enter your house number">
 						<!--END CheckBox totale6-->
 					</div>
 					<div class="col-6 col-sm-12 form-group">
@@ -102,7 +113,8 @@
 					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale8-->
 						<label><strong>City</strong></label><input th:field="*{city}"
-							class="form-control" type="text" id="city" name="city" maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
+							class="form-control" type="text" id="city" name="city"
+							maxlength="30" onkeypress="return /[a-z]/i.test(event.key)"
 							placeholder="Enter your city">
 						<!--END CheckBox totale2-->
 					</div>
@@ -126,15 +138,11 @@
 		</div>
 	</section>
 
-	<div>
-		<a class="btn btn-primary btn-customized open-menu" role="button"><i
-			class="fa fa-navicon"></i>&nbsp;Menu</a>
-		<div class="overlay"></div>
-	</div>
+
 	<script src="/assets/js/jquery.min.js"></script>
 	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/js/script.min.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 		function setInputFilter(textbox, inputFilter) {
 			[ "input", "keydown", "keyup", "mousedown", "mouseup", "select",
 					"contextmenu", "drop" ].forEach(function(event) {
@@ -159,7 +167,7 @@
 			return /^\d*$/.test(value)
 					&& (value === "" || parseInt(value) <= 10000);
 		});
-		
+
 		setInputFilter(document.getElementById("intLimitTextBox1"), function(
 				value) {
 			return /^\d*$/.test(value)
@@ -170,7 +178,6 @@
 			return /^\d*$/.test(value)
 					&& (value === "" || parseInt(value) <= 1000000000);
 		});
-		
 	</script>
 </body>
 
