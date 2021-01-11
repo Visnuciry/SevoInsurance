@@ -57,6 +57,11 @@ public class CustomerController {
 		return "customer/Portfolio";
 	}
 	
+	@GetMapping("/AboutUs")
+	public String getAboutUs() {
+		return "customer/AboutUs";
+	}
+	
 	@GetMapping("/Contact")
 	public String getContactPage() {
 		return "customer/Contact";
