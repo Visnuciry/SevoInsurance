@@ -45,7 +45,8 @@ public class ProductController {
 
 	@PostMapping("saveProduct")
 	public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResults) {
-
+		
+		System.out.println(bindingResults);
 		if (bindingResults.hasErrors()) {
 			return "admin/createProduct";
 		} else {

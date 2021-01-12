@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.SEVO.demo.validator.UniqueProductName;
+
 
 @Entity
 
@@ -23,7 +25,9 @@ public class Product {
 	@Column(name = "product_id")
 	private Integer productId;
 	
+	
 	@NotBlank
+	@UniqueProductName
 	@Column(name = "product_name")
 	private String productName;
 	

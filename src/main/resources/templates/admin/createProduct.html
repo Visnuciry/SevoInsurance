@@ -44,14 +44,16 @@
 					<div class="form-group col-lg-8 offset-2">
 						<label for="ProductName" class="form-label">Product Name</label> <input th:field="*{productName}"
 							type="text" class="form-control" id="ProductName"
-							placeholder="Enter the product name">
+							placeholder="Enter the product name"><small
+								th:if="${#fields.hasErrors('productName')}" class="text-danger">Product Name could not be empty</small>
 					</div>
 					<div class="form-group col-lg-8 offset-2">
 						<label for="ProductDescription" class="form-label">Product
 							Description</label>
 						<textarea rows="5" cols="20" class="form-control"
 							id="ProductDescription"
-							placeholder="Enter your product description" th:field="*{productDescription}"></textarea>
+							placeholder="Enter your product description" th:field="*{productDescription}"></textarea><small
+								th:if="${#fields.hasErrors('productDescription')}" class="text-danger">Product Description could not be empty</small>
 					</div>
 					<div class="form-group col-lg-8 offset-2">
 						<button type="submit" class="btn btn-primary">Submit</button>
