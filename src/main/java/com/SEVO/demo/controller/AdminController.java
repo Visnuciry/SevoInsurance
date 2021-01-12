@@ -37,7 +37,7 @@ public class AdminController {
 
 	@GetMapping("")
 	public String showMainPage(Model model) {
-		long usercount = userRepository.count();
+		long usercount = userRepository.count() -1;
 		long productcount= productRepository.count();
 		model.addAttribute("usercount", usercount);
 		model.addAttribute("productcount",productcount);
