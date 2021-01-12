@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
+<title>SEVO</title>
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Cookie">
@@ -30,18 +30,18 @@
 <body>
 	<header th:insert="customer/fragment/Header::header"></header>
 	<section class="container body-center">
-		<div class="form-container">
+		<div class="form-container" >
 			<div class="image-holder"></div>
 			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
-				th:action="@{/customer/profilePage}" th:method="post">
-				<h2 class="text-center">
+				th:action="@{/customer/profilePage}" th:method="post" class="mb-5">
+				<h2 class="text-center mb-5 mt-5 mt-md-0">
 					<strong>Your account details</strong><br>
 				</h2>
 				<input type="hidden" th:field="*{id}">
 				<!--BEGIN Error-->
 				<!--END Error-->
 				<div class="row">
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Gender&nbsp;</strong></label> <select
 							disabled="disabled" th:field="*{gender}" class="form-control">
@@ -52,7 +52,7 @@
 						<!--END CheckBox totale5-->
 					</div>
 
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale1-->
 						<label><strong>First Name&nbsp;</strong></label><input
 							disabled="disabled" th:field="*{surName}" class="form-control"
@@ -60,7 +60,7 @@
 							placeholder="Enter your first name">
 						<!--END CheckBox totale1-->
 					</div>
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale2-->
 						<label><strong>Last Name&nbsp;</strong></label><input
 							disabled="disabled" th:field="*{lastName}" class="form-control"
@@ -68,7 +68,7 @@
 							placeholder="Enter your last name">
 						<!--END CheckBox totale2-->
 					</div>
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale3-->
 						<label><strong>Date of Birth&nbsp;</strong></label><input
 							disabled="disabled" th:field="*{dateOfBirth}"
@@ -76,7 +76,7 @@
 							name="dateOfBirth">
 						<!--END CheckBox totale3-->
 					</div>
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale4-->
 						<label><strong>Insurance Number</strong></label> <input
 							disabled="disabled" id="insurance" th:field="*{insuranceNo}"
@@ -85,7 +85,7 @@
 						<!--END CheckBox totale4-->
 					</div>
 
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale5-->
 						<label><strong>Street</strong></label><input th:field="*{street}"
 							class="form-control" type="text" id="street" maxlength="30"
@@ -96,14 +96,14 @@
 
 						<!--END CheckBox totale5-->
 					</div>
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale6-->
 						<label><strong>House Number</strong></label><input
 							id="intLimitTextBox1" th:field="*{housenr}" class="form-control"
 							type="text" name="house" placeholder="Enter your house number">
 						<!--END CheckBox totale6-->
 					</div>
-					<div class="col-6 col-sm-12 form-group">
+					<div class="col-lg-6 col-sm-12 form-group">
 						<!--BEGIN CheckBox totale7-->
 						<label><strong>Postcode</strong></label> <input
 							id="intLimitTextBox" th:field="*{postcode}" class="form-control"

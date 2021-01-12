@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.SEVO.demo.dao.ProductRepository;
 import com.SEVO.demo.dao.UserRepository;
 import com.SEVO.demo.dto.UpdateUsersPassword;
 import com.SEVO.demo.entity.User;
@@ -26,13 +28,19 @@ public class AdminController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("")
-	public String showMainPage() {
-//		return "admin/HomePageAdmin";
+	public String showMainPage(Model model) {
+		long usercount = userRepository.count();
+		long productcount= productRepository.count();
+		model.addAttribute("usercount", usercount);
+		model.addAttribute("productcount",productcount);
 		return "admin/HomePageAdmin";
 
 	}

@@ -26,13 +26,13 @@ public class Product {
 	private Integer productId;
 	
 	
-	@NotBlank
+	@NotBlank(message = "Product Name could not be null")
 	@UniqueProductName
 	@Column(name = "product_name")
 	private String productName;
 	
 	@NotBlank
-	@Column(name = "product_description")
+	@Column(name = "product_description",columnDefinition = "text")
 	private String productDescription;
 	
 	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.REFRESH)

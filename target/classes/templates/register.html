@@ -46,7 +46,7 @@
 				<div class="form-group">
 					<input th:field="*{password}" class="form-control is-invalid"
 						type="password" name="password" placeholder="Password"
-						id="password" onkeyup='check();'> <small
+						id="password" onkeyup='check();' > <small th:errors="*{password}"
 						th:if="${#fields.hasErrors('password')}" class="invalid-feedback">Password
 						could not be null</small>
 				</div>

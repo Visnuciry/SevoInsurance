@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-
+<style type="text/css">
+.nav-link{
+	font-size: 1.5rem;
+}
+</style>
 </head>
 <body>
 	<header th:fragment="header">
 		<nav
 			class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button">
 			<div class="container-fluid">
-			<a class="navbar-brand" th:href="@{/customer}"><img src="/assets/img/logo.jpeg"style="width: 8vw"></a>
-				
+				<a class="navbar-brand" th:href="@{/customer}"><img
+					src="/assets/img/logo.jpeg" width="150vw"></a>
+
 				<button data-toggle="collapse" class="navbar-toggler"
 					data-target="#navcol-1">
 					<span class="sr-only">Toggle navigation</span><span
@@ -31,8 +36,9 @@
 							class="nav-link" th:href="@{/customer/profilePage}"><i
 								class="fa fa-user-circle-o"></i>&nbsp;Profile</a></li>
 
-						<li class="nav-item"><a class="nav-link" th:href="@{/customer/AboutUs}"><i
-								class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;About us</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/customer/AboutUs}"><i class="fa fa-info-circle"
+								aria-hidden="true"></i>&nbsp;About us</a></li>
 						<li class="nav-item">
 							<form method="post" th:action="@{/logout}">
 								<input type="hidden" th:name="${_csrf.parameterName}"

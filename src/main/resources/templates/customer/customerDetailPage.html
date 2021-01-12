@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
+<title>SEVO</title>
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i">
@@ -14,24 +14,26 @@
 
 <style type="text/css">
 .body-center {
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		flex-direction:column;
-		text-align:center;
-	}</style>
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+</style>
 </head>
 
 <body>
-	<div class="register-photo">
+	<div class="register-photo body-center">
 		<!--BEGIN Record sondaggi-->
-		<h2 class="text-center">
+		<h2 class="text-center text-white mt-5 mb-5">
 			<strong>Welcome to SEVO</strong><br>
 		</h2>
-		<div class="form-container body-center">
+		<div class="form-container mb-5">
 
 			<form id="sondaggi" name="{HTMLFormName}" th:object="${userDetail}"
-				th:action="@{/customer/customerDetailPage}" th:method="post">
+				th:action="@{/customer/customerDetailPage}" th:method="post"
+				style="min-width: 50vw">
 				<h2 class="text-center">
 					<strong>Your account details</strong><br>
 				</h2>

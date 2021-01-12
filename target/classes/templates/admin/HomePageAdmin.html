@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
+<title>SEVO</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Cookie">
@@ -16,76 +16,55 @@
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	
-	<style type="text/css">
 
-@media only screen and (max-width: 600px) {
-	.mobile-footer-center {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
-	}
-}
-</style>
-	
+
+
 </head>
 
 <body>
 	<div th:insert="admin/fragment/header :: header"></div>
-<footer class="pt-4 pt-md-5 border-top bg-light">
-		<div class="container pb-3">
-			<div class="row">
-				<div class="col-12 col-md mobile-footer-center">
-					<ul class="list-unstyled text-small">
-						<li><a class="link-secondary" href="#">Home</a></li>
-						<li><a class="link-secondary" href="#">Pricing</a></li>
-						<li><a class="link-secondary" href="#">About</a></li>
-						<li><a class="link-secondary" href="#">FAQ</a></li>
-						<li><a class="link-secondary" href="#">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="col-12 col-md mobile-footer-center">
-					<div class="d-flex justify-content-start align-items-center">
-						<i class="fa fa-map-marker fa-1x" style="font-size: 2rem"></i>
-						&nbsp;
-						<p>
-							<span>Peter Merian-street 86</span><br /> Basel,Switzerland
-						</p>
+
+	<section
+		class="container d-flex justify-content-center align-items-center flex-row"
+		style="min-height: 80vh;">
+		<div class="row mt-5 ">
+			<div class="col-lg-4 col-sm-12 m-5">
+				<a th:href="@{/admin/users}">
+					<div class="card text-white bg-primary mb-3"
+						style="min-width: 18rem;">
+						<div class="card-body d-flex justify-content-between">
+							<i class="fa fa-users fa-4x"></i>
+							<div>
+								<h5 class="card-title">Users</h5>
+								<p th:text="${usercount}">12</p>
+							</div>
+						</div>
 					</div>
-					<div class="d-flex justify-content-start align-items-center">
-						<i class="fa fa-envelope fa-1x" style="font-size: 1.5rem"></i>
-						&nbsp;
-						<p>info.sevo@sevo.com</p>
+				</a>
+			</div>
+			<div class="col-lg-4 col-sm-12 m-5">
+				<a th:href="@{/admin/product}">
+					<div class="card text-white bg-warning mb-3"
+						style="min-width: 18rem;">
+						<div class="card-body d-flex justify-content-between">
+							<i class="fa fa-shopping-cart fa-4x"></i>
+							<div>
+								<h5 class="card-title">Products</h5>
+								<p th:text="${productcount}">12</p>
+							</div>
+						</div>
 					</div>
-					<div class="d-flex justify-content-start align-items-center">
-						<i class="fa fa-phone fa-1x" style="font-size: 1.5rem"></i> &nbsp;
-						<p>+41 61 100 10 10</p>
-					</div>
-				</div>
-				<div class="col-12 col-md mobile-footer-center">
-					<h5>About the Company</h5>
-					<p>Deine Gesundheit in unseren Händen!</p>
-					<div>
-						<a href="#" class="p-1"><i class="fa fa-facebook fa-1x"
-							style="font-size: 1.5rem"></i></a><a href="#" class="p-1"><i
-							class="fa fa-twitter fa-1x" style="font-size: 1.5rem"></i></a><a
-							href="#" class="p-1"><i class="fa fa-linkedin fa-1x"
-							style="font-size: 1.5rem"></i></a><a href="#" class="p-1"><i
-							class="fa fa-github fa-1x" style="font-size: 1.5rem"></i></a>
-					</div>
-				</div>
+				</a>
+
 			</div>
 		</div>
-		<div class="bg-secondary text-center">
-			<p class="p-2 text-black" style="margin-block-end: 0;">
-				Copyrights &copy;2021 All rights reserved - <a class="text-black"
-					href="#" target="_blank">SEVO</a>
-			</p>
-		</div>
-	</footer>
-	
+	</section>
+
+
+
+
+
+	<footer th:insert="admin/fragment/footer::footer"></footer>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/script.min.js"></script>

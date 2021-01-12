@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Bootstrap</title>
+<title>SEVO</title>
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Cookie">
@@ -24,56 +24,53 @@
 
 <body>
 	<header th:insert="customer/fragment/Header::header"></header>
+	
 	<main class="page projets-page">
 		<section class="portfolio-block project-no-images">
 			<div class="container">
 				<div class="heading">
-					<h2>Product information</h2>
+					<h2>Product portfolio</h2>
 				</div>
-				<div class="row">
+					<div class="p-4 p-md-5 mb-4 text-white rounded" style="background: #64b464">
+						<div class="col-md-12 px-0">
+							<h1 class="display-4 font-italic text-center"
+								th:text="${product.getUserproductId().getProductName()}">Title</h1>
+							<h5 class="text-center"></h5>
 
+							<div class="row">
+								<div class="col-6 text-left">
+									<div class="row">
+										<div>
+											<p>Valid From</p>
+											<p>
+												<i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;<span
+													th:text="${product.getProductvalidfrom()}">Date</span>
+											</p>
+										</div>
+										<div class="ml-lg-5 ml-md-5">
+											<p>Valid From</p>
+											<p>
+												<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; <span
+													th:text="${product.getProductvalidto()}">Date</span>
+											</p>
+										</div>
+									</div>
+									<div></div>
 
-					<div class="col-md-6 col-lg-4 col-xl-4 offset-xl-0">
-						<div class="project-card-no-image">
-							<h3>Product Name</h3>
-							<input type="text"
-								th:value="${product.getUserproductId().getProductName()}">
-							<div class="tags"></div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="project-card-no-image">
-							<h3>From</h3>
-							<input type="text" th:value="${product.getProductvalidfrom()}">
-
-							<h3>
-								<br /> To
-							</h3>
-							<input type="text" th:value="${product.getProductvalidto()}">
-							<div class="tags"></div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-4">
-						<div class="card text-white bg-primary mb-3">
-							<div class="card-header">Description</div>
-							<div class="card-body">
-								<h5 class="card-title">Description</h5>
-								<p class="card-text" th:text="${product.getUserproductId().getProductDescription()}"></p>
+								</div>
+								<div class="col-6 text-right">
+									<p>Fee</p>
+									<p>
+										<i class="fa fa-btc" aria-hidden="true"></i> &nbsp;<span
+											th:text="${product.getProductfee()}"></span>
+									</p>
+								</div>
 							</div>
-						</div>
-						
-					</div>
-
-					<div class="col-md-6 col-lg-4">
-						<div class="project-card-no-image">
-							<h3>Fee</h3>
-							<input type="text" th:value="${product.getProductfee()}">
-							<div class="tags"></div>
+							<p class="lead my-3"
+								th:text="${product.getUserproductId().getProductDescription()}"></p>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-4"></div>
 				</div>
-			</div>
 		</section>
 	</main>
 	<footer th:insert="customer/fragment/footer::footer"></footer>

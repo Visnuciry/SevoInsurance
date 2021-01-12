@@ -16,7 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -43,6 +45,8 @@ public class User {
 	@EmailValidator
 	@Column(name = "email_address")
 	private String emailAddress;
+	
+	@Size(min = 8, message = "Password must contain atleast 8 character")
 	@Column(name = "password")
 	@NotBlank
 	private String password;
