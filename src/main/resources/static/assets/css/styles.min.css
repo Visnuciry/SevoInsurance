@@ -347,7 +347,7 @@
 
 .login-dark {
 	min-height: 100vh;
-	background: url(../../assets/img/star-sky.jpg) 0 0/cover #475d62;
+	background: url(../../assets/img/loginbackground.jpeg) 0 0/cover #475d62;
 	position: relative
 }
 
@@ -536,7 +536,7 @@ div.social-links {
 }
 
 .register-photo {
-	background: url(../../assets/img/star-sky.jpg) 0 0/cover #475d62;
+	background: url(../../assets/img/loginbackground.jpeg) 0 0/cover #475d62;
 	min-height: 100vh;
 	position: relative;
 	padding-bottom: 11px;
