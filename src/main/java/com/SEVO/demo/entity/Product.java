@@ -35,7 +35,7 @@ public class Product {
 	@Column(name = "product_description",columnDefinition = "text")
 	private String productDescription;
 	
-	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.DETACH)
+	@OneToMany(mappedBy = "userproductId", cascade = CascadeType.REMOVE)
 	private List<UserProducts> userproducts;
 
 	public Product() {

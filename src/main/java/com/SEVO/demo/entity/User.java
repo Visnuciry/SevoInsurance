@@ -58,7 +58,7 @@ public class User {
 	@Value("${false}")
 	private boolean deleteFlag;
 	
-	@OneToMany(mappedBy = "ownerId", cascade = CascadeType.DETACH)
+	@OneToMany(mappedBy = "ownerId", cascade = CascadeType.REMOVE)
 	private List<UserProducts> userproducts;
 
 	@ManyToMany(fetch = FetchType.EAGER)
