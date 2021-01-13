@@ -26,11 +26,11 @@ public class UserProducts {
 	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne(cascade = CascadeType.REFRESH)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userproduct_id")
 	private Product userproductId;
 	
-	@ManyToOne(cascade = CascadeType.REFRESH)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "owner_id")
 	private User ownerId;
 	
