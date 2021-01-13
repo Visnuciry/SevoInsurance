@@ -65,7 +65,7 @@ public class User {
 	@JoinTable(name = "userrolls", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "roll_id", referencedColumnName = "rolls_id"))
 	private Set<Role> rolesSet;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "user")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
 
 	private UserDetail userDetail;
 
