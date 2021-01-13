@@ -121,11 +121,12 @@
 				  buttons: ["Oh no!", "Yes Delete!"],
 				})
 				.then((willDelete) => {
+					console.log(userId);
 				  if (willDelete) {
 					  $.ajax({
 					        type: "POST",
 					        contentType: "application/json",
-					        url: "/admin/userDelete",
+					        url: "admin/userDelete",
 					        data: JSON.stringify(userId),
 					        dataType: 'json',
 					        cache: false,
