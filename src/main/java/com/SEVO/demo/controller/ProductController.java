@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.SEVO.demo.dao.ProductRepository;
+import com.SEVO.demo.dto.UpdateProduct;
 import com.SEVO.demo.entity.Product;
 
 @Controller
@@ -45,7 +46,7 @@ public class ProductController {
 
 	@PostMapping("saveProduct")
 	public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResults) {
-		
+
 		System.out.println(bindingResults);
 		if (bindingResults.hasErrors()) {
 			return "admin/createProduct";
@@ -66,18 +67,20 @@ public class ProductController {
 	}
 
 	@PostMapping("updateProduct")
-	public String updateProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResults) {
+	public String updateProduct(@Valid @ModelAttribute("product") UpdateProduct product, BindingResult bindingResults) {
+		System.out.println(bindingResults);
 
 		if (bindingResults.hasErrors()) {
-			return "admin/editProduct/"+product.getProductId();
+
+			return "redirect:/admin/product/" + product.getProductId();
 		} else {
-			Product tempProduct = productRepository.findById(product.getProductId()).get();
-			
+
+			Product tempProduct = new Product();
 			tempProduct.setProductId(product.getProductId());
-			tempProduct.setProductName(product.getProductName());
 			tempProduct.setProductDescription(product.getProductDescription());
-			
-			productRepository.saveAndFlush(tempProduct);
+			System.out.println(tempProduct.getProductName());
+
+			productRepository.updateDescription(product.getProductId(), product.getProductDescription());
 			return "redirect:/admin/product";
 
 		}

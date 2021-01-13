@@ -45,8 +45,9 @@
 				<div class="row col-lg-12">
 					<div class="form-group col-lg-8 offset-2">
 						<label for="ProductName" class="form-label">Product Name</label> <input
-							th:field="*{productName}" type="text" class="form-control"
-							id="ProductName" placeholder="Enter the product name">
+							th:placeholder="${product.getProductName()}" type="text" class="form-control"
+							id="ProductName" disabled="disabled"><small th:errors="*{ProductName}"
+								th:if="${#fields.hasErrors('ProductName')}" class="text-danger">Fee could not be empty</small>
 					</div>
 					<div class="form-group col-lg-8 offset-2">
 						<label for="ProductDescription" class="form-label">Product
@@ -54,7 +55,8 @@
 						<textarea rows="5" cols="20" class="form-control"
 							id="ProductDescription"
 							placeholder="Enter your product description"
-							th:field="*{productDescription}"></textarea>
+							th:field="*{productDescription}"></textarea><small th:errors="*{productDescription}"
+								th:if="${#fields.hasErrors('productDescription')}" class="text-danger">Fee could not be empty</small>
 					</div>
 
 					<input th:field="*{productId}" type="hidden">
